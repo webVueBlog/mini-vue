@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <!-- <script src="/node_modules/@vue/reactivity/dist/reactivity.global.js"></script> -->
+    <script src="dist/Vue.js"></script>
+    <script>
+        let {
+            reactive,
+            effect
+        } = VueReactivity;
+        let state = reactive({
+            name: '大li',
+            age: 1
+        })
+        console.log('state', state);
+        /**
+         * vue2 Object.defineProperty state: { a: { arr: [12,3], b: { c: { d: 1 }}}}
+         * vue3 Proxy new Proxy(state, handler)
+         */
+
+        // 会传进来一个函数
+        effect(() => {
+            app.innerHTML = state.name;
+            effect(() => {
+                app.innerHTML = state.age;
+            })
+        })
+
+        setTimeout(() => {
+            state.name = 'jj'
+        }, 1000)
+    </script>
+</body>
+
+</html>
