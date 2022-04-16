@@ -19,7 +19,7 @@ export default new Vuex.Store({ // 内部会创造一个vue实例，通信用的
         }
     },
     actions: { // 通过action中发起请求 异步操作在actions中
-        changeAge({ commit }) { // 参数store
+        changeAge({ commit }, payload) { // 参数store
             setTimeout(() => {
                 commit('changeAge', 10) // 调用mutations
             }, 3000)

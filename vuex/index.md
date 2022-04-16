@@ -1,0 +1,17 @@
+1. vuex基本用法
+2. install方法
+3. vuex中state的实现
+4. getters实现
+5. actions和mutations
+6. 模块的用法
+7. moduleCollection实现
+8. 抽离module类
+9. 递归安装模块
+10. vuex格式化操作
+11. 增加响应式效果
+12. 命名空间的计算
+13. 模块的注册
+14. vuex实现持久化插件
+15. replaceState
+16. 区分mutaion和action
+17. 辅助函数的应用
