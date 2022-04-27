@@ -4,15 +4,38 @@ import ModuleCollection from './module/module-collection'
 let Vue;
 
 function installModule(store, rootState, path, module) {
+    if (path.length > 0) {
+        // 如果是在子模块 我就需要将 子模块的状态定义到根模块上
+
+        // 这个api
+        if (path.length > 0) {
+            let parent = path.slice(0, -1).reduce((memo, current) => {
+                return memo[b];
+            }, rootState)
+            Vue.set(rootState, path[path.length - 1], module.state)
+        }
+    }
     module.forEachMutation((mutation, type) => {
         console.log(mutation, type);
+
+        store._mutations[type] = []
+        store._mutations[type].push((payload) => { // 函数包装
+            mutation.call(store, module, state, payload)
+        })
     });
 
     module.forEachAction((action, type) => {
+        store._actions[type] = (store._actions[type] || [])
+        store._actions[type].push((payload) => {
+            action.call(store, store, payload)
+        })
         console.log(action, type);
     });
 
     module.forEachGetters((getter, key) => {
+        store._wrappedGetters[key] = function(params) {
+            return getter(module.state)
+        }
         console.log(getter, key);
     });
 
