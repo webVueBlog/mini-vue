@@ -37,3 +37,88 @@ function defineReactive(data, key, val) {
 
 ## 如何收集依赖
 
+在getter中收集依赖，在setter中触发依赖
+
+## 依赖收集在哪里
+
+getter中收集依赖
+
+新增dep，用来存储被收集的依赖
+
+```js
+function defineReactive(data, key, val) {
+ let dep = []
+ Object.defineProperty(data, key, {
+  enumerable: true,
+  configurable: true,
+  get: function() {
+   dep.push(window.target) // 新增
+  },
+  set: function(newVal){
+   if(val === newVal) {
+    return
+   }
+   // 新增
+   for(let i=0; i<lep.length; i++) {
+    dep[i](newVal, val)
+   }
+   val = newVal
+  }
+ })
+}
+```
+
+```js
+export default class Dep {
+ constructor() {
+  this.subs = []
+ }
+ addSub(sub) {
+  this.subs.push(sub)
+ }
+ removeSub(sub) {
+  remove(this.subs, sub)
+ }
+ depend() {
+  if(window.target) {
+   this.addSub(window.target)
+  }
+ }
+ notify() {
+  const subs = this.subs.slice()
+  for(let i = 0, l = subs.length; i < 1; i++) {
+   subs[i].update()
+  }
+ }
+}
+
+function remove(arr, item) {
+ if(arr.length) {
+  const index = arr.indexOf(item)
+  if(index > -1) {
+   return arr.splice(index, 1)
+  }
+ }
+}
+```
+
+```js
+function defineReactive(data, key, val) {
+ let dep = new Dep()
+ Object.defineProperty(data, key, {
+  enumerable: true,
+  configurable: true,
+  get: function() {
+   dep.depend()
+   return val
+  },
+  set: function(newVal) {
+   if(val === newVal) {
+    return
+   }
+   val = newVal
+   dep.notify()
+  }
+ })
+}
+```
