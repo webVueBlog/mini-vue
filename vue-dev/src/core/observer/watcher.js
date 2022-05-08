@@ -125,6 +125,7 @@ export default class Watcher {
 
   /**
    * Add a dependency to this directive.
+   * 将 dep 放到watcher中
    */
   addDep (dep: Dep) {
     const id = dep.id
@@ -132,6 +133,7 @@ export default class Watcher {
       this.newDepIds.add(id)
       this.newDeps.push(dep)
       if (!this.depIds.has(id)) {
+        // 将watcher自己放到dep中，来了一个双向收集
         dep.addSub(this)
       }
     }

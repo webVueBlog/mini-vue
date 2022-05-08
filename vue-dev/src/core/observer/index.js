@@ -45,6 +45,9 @@ export class Observer {
     this.vmCount = 0
     def(value, '__ob__', this)
     if (Array.isArray(value)) {
+      // 处理数组响应式
+      // 判断是否有 __proto__ 属性
+      // obj.__proto__访问对象的原型链
       if (hasProto) {
         protoAugment(value, arrayMethods)
       } else {
@@ -52,6 +55,7 @@ export class Observer {
       }
       this.observeArray(value)
     } else {
+      // 处理对象响应式
       this.walk(value)
     }
   }
@@ -72,6 +76,7 @@ export class Observer {
    * Observe a list of Array items.
    */
   observeArray (items: Array<any>) {
+    // 遍历数组的每一项，对其进行观察（响应式处理）
     for (let i = 0, l = items.length; i < l; i++) {
       observe(items[i])
     }
@@ -85,6 +90,7 @@ export class Observer {
  * the prototype chain using __proto__
  */
 function protoAugment (target, src: Object) {
+  // 用经过增强的数组原型方法，覆盖默认的原型方法，之后你再执行那七个数组方法时就具有了依赖通知更新的能力，以达到实现数组响应式的目的
   /* eslint-disable no-proto */
   target.__proto__ = src
   /* eslint-enable no-proto */
@@ -93,6 +99,7 @@ function protoAugment (target, src: Object) {
 /**
  * Augment a target Object or Array by defining
  * hidden properties.
+ * 将增强的那七个方法直接赋值到数组对象上
  */
 /* istanbul ignore next */
 function copyAugment (target: Object, src: Object, keys: Array<string>) {
@@ -106,6 +113,7 @@ function copyAugment (target: Object, src: Object, keys: Array<string>) {
  * Attempt to create an observer instance for a value,
  * returns the new observer if successfully observed,
  * or the existing observer if the value already has one.
+ * 响应式处理的入口
  */
 export function observe (value: any, asRootData: ?boolean): Observer | void {
   if (!isObject(value) || value instanceof VNode) {
@@ -121,6 +129,7 @@ export function observe (value: any, asRootData: ?boolean): Observer | void {
     Object.isExtensible(value) &&
     !value._isVue
   ) {
+    // 实例化 Observer,进行响应式处理
     ob = new Observer(value)
   }
   if (asRootData && ob) {
@@ -131,6 +140,7 @@ export function observe (value: any, asRootData: ?boolean): Observer | void {
 
 /**
  * Define a reactive property on an Object.
+ * 处理响应式核心的地方
  */
 export function defineReactive (
   obj: Object,
@@ -139,8 +149,10 @@ export function defineReactive (
   customSetter?: ?Function,
   shallow?: boolean
 ) {
+  // 实例化一个dep，一个key对应一个dep
   const dep = new Dep()
 
+  // 获取属性描述符
   const property = Object.getOwnPropertyDescriptor(obj, key)
   if (property && property.configurable === false) {
     return
@@ -153,24 +165,33 @@ export function defineReactive (
     val = obj[key]
   }
 
+  // 通过递归的方式处理 val 为对象的情况，即处理嵌套对象
   let childOb = !shallow && observe(val)
+  // 拦截对obj[key]的访问和设置
   Object.defineProperty(obj, key, {
     enumerable: true,
     configurable: true,
+    // 拦截 obj.key，进行依赖收集以及返回最新的值
     get: function reactiveGetter () {
+      // obj.key 的值
       const value = getter ? getter.call(obj) : val
       if (Dep.target) {
+        // 读取时进行的依赖收集，将dep添加到watcher中，也将watcher添加到dep中
         dep.depend()
         if (childOb) {
+          // 对嵌套对象也进行依赖收集
           childOb.dep.depend()
           if (Array.isArray(value)) {
+            // 处理嵌套值为数组的情况
             dependArray(value)
           }
         }
       }
       return value
     },
+    // 拦截 obj.key = newVal 的操作
     set: function reactiveSetter (newVal) {
+      // 首先获取老值
       const value = getter ? getter.call(obj) : val
       /* eslint-disable no-self-compare */
       if (newVal === value || (newVal !== newVal && value !== value)) {
@@ -182,12 +203,15 @@ export function defineReactive (
       }
       // #7981: for accessor properties without setter
       if (getter && !setter) return
+      // 这是新值，用新值替换老值
       if (setter) {
         setter.call(obj, newVal)
       } else {
         val = newVal
       }
+      // 对新值做响应式处理
       childOb = !shallow && observe(newVal)
+      // 当响应式数据更新时，做依赖通知更新
       dep.notify()
     }
   })
@@ -264,6 +288,8 @@ export function del (target: Array<any> | Object, key: any) {
 /**
  * Collect dependencies on array elements when the array is touched, since
  * we cannot intercept array element access like property getters.
+ * 处理数组选项为对象的情况，对其进行依赖收集，因为前面的所有处理都没办法对数组项为对象的元素进行依赖收集
+ * 数组中对象 依赖收集
  */
 function dependArray (value: Array<any>) {
   for (let e, i = 0, l = value.length; i < l; i++) {
