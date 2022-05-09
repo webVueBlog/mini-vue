@@ -80,6 +80,7 @@ export default class Watcher {
     if (typeof expOrFn === 'function') {
       this.getter = expOrFn
     } else {
+      // 传递 key 进来，this.key
       this.getter = parsePath(expOrFn)
       if (!this.getter) {
         this.getter = noop
@@ -98,12 +99,22 @@ export default class Watcher {
 
   /**
    * Evaluate the getter, and re-collect dependencies.
+   * 触发 updateComponent 的执行，进行组件更新，进入patch阶段
+   * 更新组件时先执行render生成VNode，期间触发读取操作，进行依赖收集
    */
   get () {
+    // 执行更新
+    // 什么情况下才会执行更新？
+    // 对新值进行依赖收集
+    // Dep.target = this
     pushTarget(this)
     let value
     const vm = this.vm
     try {
+      // 执行实例化 watcher 时传递进来的第二个参数
+      // 有可能是一个函数，比如 实例化渲染watcher时传递的updateComponent函数
+      // 用户watcher，可能传递是一个key，也可能是读取this.key的函数 updateComponent
+      // 触发读取操作，被setter拦截，进行依赖收集
       value = this.getter.call(vm, vm)
     } catch (e) {
       if (this.user) {
@@ -167,10 +178,16 @@ export default class Watcher {
   update () {
     /* istanbul ignore else */
     if (this.lazy) {
+      // 懒执行时会走这儿，比如 computed
+      // 将 dirty 置为 true，在组件更新之后，当响应式数据再次被更新时，执行 computed getter
+      // 重新执行computed回调函数，计算新值，然后缓存到watcher.value
       this.dirty = true
     } else if (this.sync) {
+      // 同步执行时会走这儿
+      // 比如this.$watch()或者watch选项时，传递一个sync配置，比如{sync:true}
       this.run()
     } else {
+      // 将当前watcher放入watcher队列，一般都是走这个分支
       queueWatcher(this)
     }
   }
@@ -181,6 +198,7 @@ export default class Watcher {
    */
   run () {
     if (this.active) {
+      // 执行get
       const value = this.get()
       if (
         value !== this.value ||
@@ -194,6 +212,8 @@ export default class Watcher {
         const oldValue = this.value
         this.value = value
         if (this.user) {
+          // 用户watcher，再执行一下watch回调
+          // watch(()=>{}, {val, oldVal} => {})
           const info = `callback for watcher "${this.expression}"`
           invokeWithErrorHandling(this.cb, this.vm, [value, oldValue], this.vm, info)
         } else {
