@@ -410,6 +410,7 @@ export function mergeOptions (
   // Only merged options has the _base property.
   // 递归合并选项
   if (!child._base) {
+    // { extends } 跟这个 mixin 很类似，让你基于一个组件去扩展另外一个，不需要使用 Vue.extend
     if (child.extends) {
       parent = mergeOptions(parent, child.extends, vm)
     }

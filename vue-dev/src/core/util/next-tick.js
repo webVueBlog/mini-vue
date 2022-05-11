@@ -89,6 +89,7 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
   }
 }
 
+// Vue.nextTick(function() {xxx})
 export function nextTick (cb?: Function, ctx?: Object) {
   let _resolve
   // 将nextTick的回调函数用try catch包装一层，方便异常捕获
