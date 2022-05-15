@@ -31,13 +31,23 @@ strs[i] 仅由小写英文字母组成
 (68 ms)
  */
 var longestCommonPrefix = function(strs) {
- if(strs === undefined || strs.length === 0) { return ''; }
+ let res = strs[0]
+ for(item of strs) {
+  while(!item.startsWith(res)) {
+   res = res.substring(0, res.length - 1);
+  }
+ }
+ return res;
+}
 
- return strs.reduce((prev, next) => {
-  let i = 0;
-  while(prev[i] && next[i] && prev[i] === next[i]) i++;
-  return prev.slice(0, i);
- })
-;};
+// var longestCommonPrefix = function(strs) {
+//  if(strs === undefined || strs.length === 0) { return ''; }
+
+//  return strs.reduce((prev, next) => {
+//   let i = 0;
+//   while(prev[i] && next[i] && prev[i] === next[i]) i++;
+//   return prev.slice(0, i);
+//  })
+// };
 // @lc code=end
 
