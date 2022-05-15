@@ -12,6 +12,11 @@
 
 给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
 
+提示：
+
+0 <= digits.length <= 4
+digits[i] 是范围 ['2', '9'] 的一个数字。
+
 输入：digits = "23"
 输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]
 
@@ -21,40 +26,68 @@
 输入：digits = "2"
 输出：["a","b","c"]
 
-提示：
-
-0 <= digits.length <= 4
-digits[i] 是范围 ['2', '9'] 的一个数字。
-
  (76 ms)
  */
+ // (68 ms)
 var letterCombinations = function(digits) {
- // 字符串为null，或者长度为0，返回空字符串
- if(digits == null || digits.length === 0) return [];
- const map = {
-  2: 'abc',
-  3: 'def',
-  4: 'ghi',
-  5: 'jkl',
-  6: 'mno',
-  7: 'pqrs',
-  8: 'tuv',
-  9: 'wxyz',
- };
- // 创建答案
- const res = [];
- const go = (i, s) => {
-  // 如果i为字符串的长度 '2'
-  if(i === digits.length) {
-   res.push(s);
-   return;
+ if(!digits) return []
+ let numMap = new Map([
+ ['1', ''],
+ ['0', ''],
+ ['2', 'abc'],
+ ['3', 'def'],
+ ['4', 'ghi'],
+ ['5', 'jkl'],
+ ['6', 'mno'],
+ ['7', 'pqrs'],
+ ['8', 'tuv'],
+ ['9', 'wxyz']
+ ])
+ let res = []
+ function dfs(start, path) {
+  if(path.length === digits.length) {
+   res.push(path.join(''))
   }
-  for(const c of map[digits[i]]) { // map[2[0]]
-   go(i + 1, s + c); // ''+'a'
+  if(start >= digits.length) return
+  let row = numMap.get(digits[start])
+  // 遍历横轴
+  for(let i = 0; i < row.length; i++) {
+   path.push(row[i])
+   dfs(start+1,path)
+   path.pop()
   }
- };
- go(0, '');
- return res;
-};
+ }
+ dfs(0, [])
+ return res
+}
+
+// var letterCombinations = function(digits) {
+//  // 字符串为null，或者长度为0，返回空字符串
+//  if(digits == null || digits.length === 0) return [];
+//  const map = {
+//   2: 'abc',
+//   3: 'def',
+//   4: 'ghi',
+//   5: 'jkl',
+//   6: 'mno',
+//   7: 'pqrs',
+//   8: 'tuv',
+//   9: 'wxyz',
+//  };
+//  // 创建答案
+//  const res = [];
+//  const go = (i, s) => {
+//   // 如果i为字符串的长度 '2'
+//   if(i === digits.length) {
+//    res.push(s);
+//    return;
+//   }
+//   for(const c of map[digits[i]]) { // map[2[0]]
+//    go(i + 1, s + c); // ''+'a'
+//   }
+//  };
+//  go(0, '');
+//  return res;
+// };
 // @lc code=end
 
