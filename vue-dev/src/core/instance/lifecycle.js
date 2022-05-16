@@ -56,6 +56,7 @@ export function initLifecycle (vm: Component) {
 }
 
 export function lifecycleMixin (Vue: Class<Component>) {
+  // 组件初次渲染和更新的入口
   Vue.prototype._update = function (vnode: VNode, hydrating?: boolean) {
     const vm: Component = this
     const prevEl = vm.$el
@@ -67,6 +68,7 @@ export function lifecycleMixin (Vue: Class<Component>) {
     // 首次渲染肯定不存在的
     if (!prevVnode) {
       // initial render
+      // patch阶段，patch, diff算法
       vm.$el = vm.__patch__(vm.$el, vnode, hydrating, false /* removeOnly */)
     } else {
       // updates
@@ -104,9 +106,11 @@ export function lifecycleMixin (Vue: Class<Component>) {
     vm._isBeingDestroyed = true
     // remove self from parent
     const parent = vm.$parent
+    // 将自己从父组件的children属性中移除
     if (parent && !parent._isBeingDestroyed && !vm.$options.abstract) {
       remove(parent.$children, vm)
     }
+    // watcher 移除
     // teardown watchers
     if (vm._watcher) {
       vm._watcher.teardown()

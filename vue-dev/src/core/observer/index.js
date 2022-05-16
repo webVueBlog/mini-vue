@@ -253,7 +253,9 @@ export function set (target: Array<any> | Object, key: any, val: any): any {
     target[key] = val
     return val
   }
+  // 对新属性设置getter和setter，读取时收集依赖，更新时触发依赖通知更新
   defineReactive(ob.value, key, val)
+  // 直接进行依赖通知更新
   ob.dep.notify()
   return val
 }

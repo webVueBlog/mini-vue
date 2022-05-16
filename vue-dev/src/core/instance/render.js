@@ -60,14 +60,20 @@ export function setCurrentRenderingInstance (vm: Component) {
 
 export function renderMixin (Vue: Class<Component>) {
   // install runtime convenience helpers
+  // 在组件实例上挂载一些运行时需要用到的工具方法
   installRenderHelpers(Vue.prototype)
 
+  // Vue.nextTick
   Vue.prototype.$nextTick = function (fn: Function) {
     return nextTick(fn, this)
   }
 
+  // 执行组件的render函数，得到组件的vnode
   Vue.prototype._render = function (): VNode {
     const vm: Component = this
+    // 获取 render
+    // 用户实例化vue时提供了render配置项
+    // 编译器 编译模板生成render
     const { render, _parentVnode } = vm.$options
 
     if (_parentVnode) {
@@ -88,6 +94,7 @@ export function renderMixin (Vue: Class<Component>) {
       // separately from one another. Nested component's render fns are called
       // when parent component is patched.
       currentRenderingInstance = vm
+      // 执行render函数得到组件的vnode
       vnode = render.call(vm._renderProxy, vm.$createElement)
     } catch (e) {
       handleError(e, vm, `render`)
@@ -111,6 +118,7 @@ export function renderMixin (Vue: Class<Component>) {
     if (Array.isArray(vnode) && vnode.length === 1) {
       vnode = vnode[0]
     }
+    // 多根节点的异常提示，vue2不支持多根节点
     // return empty vnode in case the render function errored out
     if (!(vnode instanceof VNode)) {
       if (process.env.NODE_ENV !== 'production' && Array.isArray(vnode)) {
