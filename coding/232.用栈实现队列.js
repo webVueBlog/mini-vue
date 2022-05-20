@@ -9,8 +9,8 @@
  * Initialize your data structure here.
  */
 var MyQueue = function() {
-	this.stack1 = []
-	this.stack2 = []
+	this.stack1 = [] // 第一个栈
+	this.stack2 = [] // 第二个栈
 };
 
 /**
@@ -19,7 +19,7 @@ var MyQueue = function() {
  * @return {void}
  */
 MyQueue.prototype.push = function(x) {
-	this.stack1.push(x)
+	this.stack1.push(x) // 第一个栈放入
 };
 
 /**
@@ -27,14 +27,17 @@ MyQueue.prototype.push = function(x) {
  * @return {number}
  */
 MyQueue.prototype.pop = function() {
+	// 取出，先进先出
 	while(this.stack1.length !== 0){
-		this.stack2.push(this.stack1.pop())
+		this.stack2.push(this.stack1.pop()) // 出去的
+		// 放入第二个栈 this.stack1.pop() 取出第一个栈的末尾
 	}
-
+ // 取出后返回
 	var pop = this.stack2.pop()
 
 	while(this.stack2.length !== 0){
 		this.stack1.push(this.stack2.pop())
+		// 放入第一栈
 	}
 
 	return pop
