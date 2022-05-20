@@ -16,6 +16,7 @@
 - 计算机网络
 - 浏览器工作原理
 - 前端工程化
+- 各式js常用api
 
 目录：
 
@@ -45,6 +46,18 @@
 - [vue源码内Object分析](./vue-doc/Object.md)
 
 ## Vue设计与实现系列
+
+## 各式js常用api
+
+- [手写 call 和 apply]()
+- [手写 new 和 bind]()
+- [手写柯里化函数]()
+- [手写实现一个 sum 函数]()
+- [手写实现一个偏函数]()
+- [查看 this 输出和原型链输出的系列问题]()
+- [实现 instanceof]()
+- [实现 object.create]()
+- [实现 object.assign]()
 
 ## 数据结构分类
 
