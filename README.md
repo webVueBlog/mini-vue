@@ -49,7 +49,7 @@
 
 ## 各式js常用api
 
-- [手写 call 和 apply]()
+- [手写 call 和 apply](https://github.com/webVueBlog/mini-vue/issues/3)
 - [手写 new 和 bind]()
 - [手写柯里化函数]()
 - [手写实现一个 sum 函数]()
