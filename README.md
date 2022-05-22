@@ -54,7 +54,7 @@
 - [手写柯里化函数](https://github.com/webVueBlog/mini-vue/issues/5)
 - [手写实现一个 sum 函数](https://github.com/webVueBlog/mini-vue/issues/6)
 - [手写实现一个偏函数](https://github.com/webVueBlog/mini-vue/issues/7)
-- [40道this-45道Promise]()
+- [27道this-45道Promise](https://github.com/webVueBlog/mini-vue/issues/8)
 - [实现 instanceof]()
 - [实现 object.create]()
 - [实现 object.assign]()
