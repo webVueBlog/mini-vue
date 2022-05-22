@@ -53,7 +53,7 @@
 - [手写 new 和 bind](https://github.com/webVueBlog/mini-vue/issues/4)
 - [手写柯里化函数](https://github.com/webVueBlog/mini-vue/issues/5)
 - [手写实现一个 sum 函数](https://github.com/webVueBlog/mini-vue/issues/6)
-- [手写实现一个偏函数]()
+- [手写实现一个偏函数](https://github.com/webVueBlog/mini-vue/issues/7)
 - [查看 this 输出和原型链输出的系列问题]()
 - [实现 instanceof]()
 - [实现 object.create]()
