@@ -56,7 +56,7 @@
 - [5.手写实现一个偏函数](https://github.com/webVueBlog/mini-vue/issues/7)
 - [6.27道this-27道Promise](https://github.com/webVueBlog/mini-vue/issues/8)
 - [7.实现 instanceof](https://github.com/webVueBlog/mini-vue/issues/9)
-- [8.实现 object.create]()
+- [8.实现 object.create](https://github.com/webVueBlog/mini-vue/issues/10)
 - [9.实现 object.assign]()
 - [10.实现原型链继承、借用构造函数继承、组合继承]()
 - [11.手写原型式继承、寄生式继承、寄生组合式继承]()
