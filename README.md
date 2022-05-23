@@ -1,5 +1,9 @@
 # 手写 && 源码 && 笔记
 
+友情链接
+
+- [nice-js-leetcode](https://github.com/nice-people-frontend-community/nice-js-leetcode)
+
 标签：
 
 - 手写源码系列
@@ -103,7 +107,7 @@
 
 
 
-- [nice-js-leetcode](https://github.com/nice-people-frontend-community/nice-js-leetcode)
+
 
 ## 🐤 交流讨论 && 如何学习 && 转载声明 && 帮忙修正
 
