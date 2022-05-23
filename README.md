@@ -49,15 +49,19 @@
 
 ## 各式js常用api
 
-- [手写 call 和 apply](https://github.com/webVueBlog/mini-vue/issues/3)
-- [手写 new 和 bind](https://github.com/webVueBlog/mini-vue/issues/4)
-- [手写柯里化函数](https://github.com/webVueBlog/mini-vue/issues/5)
-- [手写实现一个 sum 函数](https://github.com/webVueBlog/mini-vue/issues/6)
-- [手写实现一个偏函数](https://github.com/webVueBlog/mini-vue/issues/7)
-- [27道this-27道Promise](https://github.com/webVueBlog/mini-vue/issues/8)
-- [实现 instanceof]()
-- [实现 object.create]()
-- [实现 object.assign]()
+- [1.手写 call 和 apply](https://github.com/webVueBlog/mini-vue/issues/3)
+- [2.手写 new 和 bind](https://github.com/webVueBlog/mini-vue/issues/4)
+- [3.手写柯里化函数](https://github.com/webVueBlog/mini-vue/issues/5)
+- [4.手写实现一个 sum 函数](https://github.com/webVueBlog/mini-vue/issues/6)
+- [5.手写实现一个偏函数](https://github.com/webVueBlog/mini-vue/issues/7)
+- [6.27道this-27道Promise](https://github.com/webVueBlog/mini-vue/issues/8)
+- [7.实现 instanceof](https://github.com/webVueBlog/mini-vue/issues/9)
+- [8.实现 object.create]()
+- [9.实现 object.assign]()
+- [10.实现原型链继承、借用构造函数继承、组合继承]()
+- [11.手写原型式继承、寄生式继承、寄生组合式继承]()
+- [12.请写出ES6中的class继承与ES5继承的区别]()
+
 
 ## 数据结构分类
 
