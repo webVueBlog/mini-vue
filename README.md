@@ -73,6 +73,7 @@
 
 - [1.二叉树-概览](https://github.com/webVueBlog/mini-vue/issues/1)
 - [2.二叉树实操](https://github.com/webVueBlog/mini-vue/issues/11)
+- [3.二叉树进阶](https://github.com/webVueBlog/mini-vue/issues/12)
 
 ## 算法分类
 
