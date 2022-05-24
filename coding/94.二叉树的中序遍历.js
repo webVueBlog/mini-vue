@@ -27,21 +27,48 @@
 输入：root = [1]
 输出：[1]
 (56 ms)
+取跟节点为目标节点，开始遍历
+1.左孩子入栈 -> 直至左孩子为空的节点
+2.节点出栈 -> 访问该节点
+3.以右孩子为目标节点，再依次执行1、2、3
  */
-var inorderTraversal = function(root) {
+var inorderTraversal = function (root) {
+ const result = [];
  const stack = [];
- const res = [];
- while(root || stack.length) {
-  if(root) {
-   stack.push(root);
-   root = root.left;
-  } else {
-   root = stack.pop();
-   res.push(root.val);
-   root = root.right;
-  }
- } 
- return res;
+ let current = root;
+ while (current || stack.length > 0) {
+   while (current) {
+     stack.push(current);
+     current = current.left;
+   }
+   current = stack.pop();
+   result.push(current.val);
+   current = current.right;
+ }
+ return result;
 };
+// var inorderTraversal = function(root, array = []) {
+//  const stack = [];
+//  const res = [];
+//  while(root || stack.length) {
+//   if(root) {
+//    stack.push(root);
+//    root = root.left;
+//   } else {
+//    root = stack.pop();
+//    res.push(root.val);
+//    root = root.right;
+//   }
+//  } 
+//  return res;
+// };
+// var inorderTraversal = function(root, array = []) {
+//  if(root) {
+//   inorderTraversal(root.left, array)
+//   array.push(root.val)
+//   inorderTraversal(root.right, array)
+//  }
+//  return array;
+// };
 // @lc code=end
 
