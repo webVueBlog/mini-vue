@@ -9,8 +9,10 @@
 - 手写源码系列
 - 分析源码系列 
 - 深入浅出Vue系列
-- Vue设计与实现系列
+- 各式js常用api
 - 数据结构分类
+
+- Vue设计与实现系列
 - 算法分类
 - JavaScript
 - 前端应用场景
@@ -20,7 +22,7 @@
 - 计算机网络
 - 浏览器工作原理
 - 前端工程化
-- 各式js常用api
+- react核心
 
 目录：
 
@@ -49,7 +51,6 @@
 
 - [vue源码内Object分析](./vue-doc/Object.md)
 
-## Vue设计与实现系列
 
 ## 各式js常用api
 
@@ -74,33 +75,6 @@
 - [1.二叉树-概览](https://github.com/webVueBlog/mini-vue/issues/1)
 - [2.二叉树实操](https://github.com/webVueBlog/mini-vue/issues/11)
 - [3.二叉树进阶](https://github.com/webVueBlog/mini-vue/issues/12)
-
-## 算法分类
-
-## JavaScript
-
-## 前端应用场景
-
-## TypeScript系列
-
-## 正则系列
-
-## 算法题解
-
-## 计算机网络
-
-## 浏览器工作原理
-
-## 前端工程化
-
-## 单元测试
-
-## 面试
-
-
-
-
-
 
 
 
