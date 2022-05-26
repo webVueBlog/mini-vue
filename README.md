@@ -63,7 +63,7 @@
 - [8.实现 object.create](https://github.com/webVueBlog/mini-vue/issues/10)
 - [9.实现 object.assign](https://github.com/webVueBlog/mini-vue/issues/13)
 - [10.实现原型链继承、借用构造函数继承、组合继承](https://github.com/webVueBlog/mini-vue/issues/14)
-- [11.手写原型式继承、寄生式继承、寄生组合式继承]()
+- [11.手写原型式继承、寄生式继承、寄生组合式继承](https://github.com/webVueBlog/mini-vue/issues/15)
 - [12.请写出ES6中的class继承与ES5继承的区别]()
 
 
