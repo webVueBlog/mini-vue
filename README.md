@@ -70,18 +70,11 @@
 
 ## 数据结构分类
 
-### 二叉树
+<!-- ### 二叉树
 
 - [1.二叉树-概览](https://github.com/webVueBlog/mini-vue/issues/1)
 - [2.二叉树实操](https://github.com/webVueBlog/mini-vue/issues/11)
-- [3.二叉树进阶](https://github.com/webVueBlog/mini-vue/issues/12)
-
-
-
-
-
-
-
+- [3.二叉树进阶](https://github.com/webVueBlog/mini-vue/issues/12) -->
 
 ## 🐤 交流讨论 && 如何学习 && 转载声明 && 帮忙修正
 
