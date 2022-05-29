@@ -17,7 +17,8 @@
 
 A-Z 65-90
 回溯 递归
-(88 ms)
+
+(80 ms)
  */
 var letterCasePermutation = function (s) {
   // current '' index是按照字符串索引排序，没有跳过等情况, res[]
