@@ -14,6 +14,7 @@
 [ 0, 1, 3, 7]
 [ 4, 4, 4, -1]
 [ 4, 4, 4, -1, -1, -1, -1, -1]
+(80 ms)
  */
 var nextGreaterElements = function(nums) {
     nums = nums.concat(nums);

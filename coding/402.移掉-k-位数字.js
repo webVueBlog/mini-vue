@@ -23,6 +23,7 @@
 
 num = "10", k = 2
 "0"
+(72 ms)
  */
 var removeKdigits = function(num, k) {
     let stack = [];

@@ -16,8 +16,10 @@
 /**
  * @param {ListNode} head
  * @return {ListNode}
+返回入环点的位置
  * 2(x+y) = x+2y+z
  * x = z 
+(72 ms)
  */
 var detectCycle = function(head) {
     if (!head || head.next === null) return null

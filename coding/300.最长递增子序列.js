@@ -8,28 +8,31 @@
 /**
  * @param {number[]} nums
  * @return {number}
- * [10,9,2,5,3,7,101,18]
- * [10,9,2,5,3,7,101]
- * [10,9,2,5,3,7] 3
- * 动态规划题目
- * 一个完整的问题，可以分解很多小的子问题，小问题的最优解，那么全局就是最优解。
- * 动态规划：状态，选择
+[10,9,2,5,3,7,101,18]
+dp[4] 以5为结尾的最长递增子序列的长度
+[10,9,2,5,3,7,101]
+[10,9,2,5,3,7]
+(160 ms)
  */
 var lengthOfLIS = function(nums) {
-    let len = nums.length;
-    let max = 1;
-    // 以每一项为结尾的最长递增子序列的长度
-    let dp = new Array(len).fill(1); // dp数组
-    for (let i = 0; i < len; i++) {
-        // dp[i]
-        for (let j = 0; j < i; j++) {
-            // dp[j]
-            if (nums[j] < nums[i]) {
-                dp[i] = Math.max(dp[j] + 1, dp[i]);
-            }
-        }
-        max = Math.max(dp[i], max);
-    }
-    return max;
+ let len = nums.length;
+ // 以每一项为结尾的最长递增子序列的长度
+ let dp = new Array(len).fill(1);
+ let max = 1;
+
+ for(let i = 0; i < len; i++) {
+  // 遍历数组的每一项
+  for(let j = 0; j < i; j++) {
+   // 针对左边的每一项遍历，得到左侧末尾的最长递增子序列的长度
+   // dp[j]
+   // [2,5,7] 2 => 5 < 7  3
+   if(nums[j] < nums[i]) {
+    // 如果当前左侧+1，dp[i]的最长递增子序列
+    dp[i] = Math.max(dp[j] + 1, dp[i]);
+   }
+  }
+  max = Math.max(dp[i], max)
+ }
+ return max;
 };
 // @lc code=end
