@@ -27,18 +27,20 @@
 目录：
 
 - mini-vue手写源码解析
-- vue2源码解析-2.6.14
+- vue2源码解析-2.6.
+- AC目录 - 算法笔记
+- JavaScript - 笔记
 
 ## 手写源码系列
 
-- [手写vue3响应式原理](./vue3/index.md)
-- [手写vue的响应式](./vue2/index.md)
-- [Axios 请求拦截器](./Axios/index.md) - "axios": "^0.19.2",
-- [Vue.js Ajax(axios)](./Axios/axios.md)
-- [手写promise实现promiseA+规范](./promise/src/index.md)
-- [手写vuex源码分析](./vuex/index.md)
+- [手写vue3响应式原理](./vue3/index.md) - 在 vue3 目录文件夹下
+- [手写vue的响应式](./vue2/index.md) - 在 vue2 目录文件夹下
+- [Axios 请求拦截器](./Axios/index.md) - 在 Axios 目录文件夹下 "axios": "^0.19.2",
+- [Vue.js Ajax(axios)](./Axios/axios.md) - 在 Axios 目录文件夹下
+- [手写 promise 实现promiseA+规范](./promise/src/index.md) 在 promise 目录文件夹下
+- [手写vuex源码分析](./vuex/index.md) - 在 vuex 目录文件夹下
 
-## 分析源码系列
+## 分析源码系列 - 在 vue 和 vue-dev(源码解析) 目录文件夹下
  
 - [vue源码分析前言](./vue/vue源码分析前言.md)
 - [vue源码初始化过程](./vue/vue源码初始化过程.md)
@@ -47,10 +49,9 @@
 - [vue源码全局API](./vue/vue源码全局API.md)
 - [vue源码实例方法](./vue/vue源码实例方法.md)
 
-## 深入浅出Vue系列
+## 深入浅出Vue系列 - 在 vue-doc 目录文件夹下
 
 - [vue源码内Object分析](./vue-doc/Object.md)
-
 
 ## 各式js常用api
 
@@ -65,14 +66,6 @@
 - [9.实现 object.assign](https://github.com/webVueBlog/mini-vue/issues/13)
 - [10.实现原型链继承、借用构造函数继承、组合继承](https://github.com/webVueBlog/mini-vue/issues/14)
 - [11.手写原型式继承、寄生式继承、寄生组合式继承](https://github.com/webVueBlog/mini-vue/issues/15)
-
-## 数据结构分类
-
-<!-- ### 二叉树
-
-- [1.二叉树-概览](https://github.com/webVueBlog/mini-vue/issues/1)
-- [2.二叉树实操](https://github.com/webVueBlog/mini-vue/issues/11)
-- [3.二叉树进阶](https://github.com/webVueBlog/mini-vue/issues/12) -->
 
 ## 🐤 交流讨论 && 如何学习 && 转载声明 && 帮忙修正
 
