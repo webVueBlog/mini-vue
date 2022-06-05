@@ -17,31 +17,11 @@
 输入：nums = [1,0,1,1,0,1]
 输出：2
 
-(72 ms)
+(68 ms)
  */
 
 var findMaxConsecutiveOnes = function(nums) {
-    let [left, right, len, res] = [0, 0, nums.length, 0];
-    while (right < len) {
-        if (nums[right] === 1) {
-            right++;
-        } else {
-            left = right;
-            left++;
-            right++;
-        }
-        res = Math.max(res, right - left)
-    }
-    return res;
-}
-
-// var findMaxConsecutiveOnes = function(nums) {
-//     let max = 0,
-//         curr = 0;
-//     for (let k of nums) {
-//         max = Math.max(max, curr += k);
-//         if (!k) curr = 0;
-//     }
-//     return max;
-// };
+    return nums.join('').split('0').reduce((max, ones) => 
+    Math.max(max, ones.length), 0)
+};
 // @lc code=end
