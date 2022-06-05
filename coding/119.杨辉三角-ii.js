@@ -27,14 +27,12 @@
  
  (60 ms)
  */
-var getRow = function(rowIndex) {
- var ans = new Array(rowIndex+1)
- // rowIndex 为 0 值 为 1
- ans[0] = ans[rowIndex] = 1
- for(let i = 1, up = rowIndex; i < rowIndex; i++, up--) {
-  ans[i] = ans[i-1] * up / i
- }
- return ans
+var getRow = function(r) {
+    var ans = new Array(r+1)
+    ans[0]=ans[r]=1
+    for(i=1,up=r;i<r;i++,up--)
+        ans[i] = ans[i-1]*up/i
+    return ans
 };
 // @lc code=end
 

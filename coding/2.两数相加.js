@@ -34,42 +34,59 @@
 输出：[8,9,9,9,0,0,0,1]
 
  */
+var addTwoNumbers = function(l1, l2) {
+ let res = new ListNode()
+ let carry = 0
+ let node = res
+ while(l1 || l2 || carry>0) {
+  let v1 = l1 ? l1.val : 0,
+  v2 = l2 ? l2.val : 0
+  let sum = v1 + v2 + carry
+  carry = Math.floor(sum/10)
+  sum = sum%10
+  node.next = new ListNode(sum)
+  if(l1) l1 = l1.next
+  if(l2) l2 = l2.next
+  node = node.next
+ }
+ return res.next
+}
 // (100 ms)
- var addTwoNumbers = function(l1, l2) {
-  // 创建链表 List.next为结果值
-  var List = new ListNode(0);
-  // 临时链表
-  var head = List;
-  var sum = 0;
-  // 进位
-  var carry = 0;
+//  var addTwoNumbers = function(l1, l2) {
+//   // 创建链表 List.next为结果值
+//   var List = new ListNode(0);
+//   // 临时链表
+//   var head = List;
+//   var sum = 0;
+//   // 进位
+//   var carry = 0;
 
-  while(l1!==null||l2!==null||sum>0){
-      // 2->4->3
-      if(l1!==null){
-          // 当前链表的值
-          sum = sum + l1.val;
-          l1 = l1.next;
-      }
-      if(l2!==null){
-          sum = sum + l2.val;
-          l2 = l2.next;
-      }
-      if(sum>=10){
-          carry = 1;
-          sum = sum - 10;
-      }
-      // head.next 就是下一个值
-      head.next = new ListNode(sum);
-      // 赋值下一个head
-      head = head.next;
-      // 有值的话下一个相加
-      sum = carry;
-      carry = 0;
+//   while(l1!==null||l2!==null||sum>0){
+//       // 2->4->3
+//       if(l1!==null){
+//           // 当前链表的值
+//           sum = sum + l1.val;
+//           l1 = l1.next;
+//       }
+//       if(l2!==null){
+//           sum = sum + l2.val;
+//           l2 = l2.next;
+//       }
+//       if(sum>=10){
+//           carry = 1;
+//           sum = sum - 10;
+//       }
+//       // head.next 就是下一个值
+//       head.next = new ListNode(sum);
+//       // 赋值下一个head
+//       head = head.next;
+//       // 有值的话下一个相加
+//       sum = carry;
+//       carry = 0;
 
-  }
+//   }
 
-  return List.next;
-};
+//   return List.next;
+// };
 // @lc code=end
 

@@ -18,20 +18,29 @@
 输入：nums = [2,7,11,15], target = 9
 输出：[0,1]
 解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
-
+ (68 ms)
  */
-
 var twoSum = function(nums, target) {
- let map = new Map();
+ let hash = {}
  for(let i = 0; i < nums.length; i++) {
-  if(map.has(target - nums[i])) {
-   return [map.get(target - nums[i]), i]
-  } else {
-   map.set(nums[i], i);
+  if(hash[nums[i]] != null) {
+   return [hash[nums[i]], i]
   }
+  hash[target-nums[i]] = i
  }
- return [];
 }
+// var twoSum = function(nums, target) {
+//  let map = new Map();
+//  for(let i = 0; i < nums.length; i++) {
+//   if(map.has(target - nums[i])) {
+//    return [map.get(target - nums[i]), i]
+//   } else {
+//    map.set(nums[i], i);
+//   }
+//  }
+//  return [];
+// }
+
 //  (64 ms) 时间复杂度为O(n)。
 // var twoSum = function(nums, target) {
 //  let hash = {};

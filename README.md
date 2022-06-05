@@ -31,6 +31,13 @@
 - AC目录 - 算法笔记
 - JavaScript - 笔记
 
+## JavaScript - 该目录下
+
+- 不容易想明白的promise面试题
+- cookie的有效时间设置为0会怎么样
+- Object与Map有什么区别
+- postMessage有哪些使用场景
+
 ## 手写源码系列
 
 - [手写vue3响应式原理](./vue3/index.md) - 在 vue3 目录文件夹下
