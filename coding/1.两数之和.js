@@ -9,23 +9,32 @@
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
-给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
+难度：Easy
 
-你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
+相关话题：`数组`、`哈希表`
 
-你可以按任意顺序返回答案。
+给定一个整数数组  `nums` 和一个目标值  `target` ，请你在该数组中找出和为目标值的那**两个** 整数，并返回他们的数组下标。
 
-输入：nums = [2,7,11,15], target = 9
-输出：[0,1]
-解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
+你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。
+
+给定 nums = [2, 7, 11, 15], target = 9
+
+因为 nums[0] + nums[1] = 2 + 7 = 9
+所以返回 [0, 1]
+
  (68 ms)
  */
 var twoSum = function(nums, target) {
+ // 初始化哈希表
  let hash = {}
+ // 遍历数组
  for(let i = 0; i < nums.length; i++) {
+  // 判断哈希表的属性值是否存在
   if(hash[nums[i]] != null) {
+   // 存储值
    return [hash[nums[i]], i]
   }
+  // 值存在，返回I
   hash[target-nums[i]] = i
  }
 }

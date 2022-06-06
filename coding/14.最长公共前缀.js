@@ -9,35 +9,37 @@
  * @param {string[]} strs
  * @return {string}
 
-提示：
+难度：Easy
 
-1 <= strs.length <= 200
-0 <= strs[i].length <= 200
-strs[i] 仅由小写英文字母组成
+相关话题：`字符串`
 
 编写一个函数来查找字符串数组中的最长公共前缀。
 
-如果不存在公共前缀，返回空字符串 ""。
+如果不存在公共前缀，返回空字符串 `""` 。
 
-示例 1：
-输入：strs = ["flower","flow","flight"]
-输出："fl"
+```
+输入:["flower","flow","flight"]
+输出: "fl"
+```
 
-示例 2：
-输入：strs = ["dog","racecar","car"]
-输出：""
-解释：输入不存在公共前缀。
+```
+输入:["dog","racecar","car"]
+输出: ""
+解释: 输入不存在公共前缀。
+```
 
-(68 ms)
+所有输入只包含小写字母 `a-z` 。
+
+(52 ms)
  */
 var longestCommonPrefix = function(strs) {
  let res = strs[0]
  for(item of strs) {
   while(!item.startsWith(res)) {
-   res = res.substring(0, res.length - 1);
+   res = res.substring(0, res.length-1)
   }
  }
- return res;
+ return res
 }
 
 // var longestCommonPrefix = function(strs) {
