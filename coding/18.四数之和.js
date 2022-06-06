@@ -31,10 +31,36 @@
 思路：
 
 时间复杂度`O(N^3)`，`3SUM`的基础上增加一个循环，参考`NO.15`。
+ (72 ms)
 
  */
 var fourSum = function(nums, target) {
-
+  // 把数组排序好，方便去重
+  nums.sort((a,b) => a-b)
+  let res = []
+  for(let i = 0; i < nums.length - 3; i++) {
+    if(i>0 && nums[i] === nums[i-1]) continue
+    for(let j = i + 1; j < nums.length-2; j++) {
+      if(j > i+1 && nums[j] === nums[j - 1]) continue
+      let targ = target - (nums[i] + nums[j])
+      let lo = j + 1, hi = nums.length - 1
+      while(lo < hi) {
+        let sum = nums[lo] + nums[hi]
+        if(sum > targ) {
+          hi--
+        }else if(sum < targ) {
+          lo++
+        }else {
+          res.push([nums[i], nums[j], nums[lo], nums[hi]])
+          while(nums[lo] === nums[lo+1]) lo++
+          while(nums[hi] === nums[hi-1]) hi--
+          lo++
+          hi--
+        }
+      }
+    }
+  }
+  return res
 };
 // @lc code=end
 

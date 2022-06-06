@@ -8,61 +8,50 @@
 /**
  * @param {number[]} nums
  * @return {number}
+难度：Easy
 
-输入：nums = [1,1,2]
-输出：2, nums = [1,2,_]
-解释：函数应该返回新的长度 2 ，并且原数组 nums 的前两个元素被修改为 1, 2 。不需要考虑数组中超出新长度后面的元素。
+相关话题：`数组`、`双指针`
 
-输入：nums = [0,0,1,1,1,2,2,3,3,4]
-输出：5, nums = [0,1,2,3,4]
-解释：函数应该返回新的长度 5 ， 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4 。不需要考虑数组中超出新长度后面的元素。
+```
+给定数组 nums = [1,1,2], 
 
-提示：
+函数应该返回新的长度 2, 并且原数组 nums的前两个元素被修改为 `1`, `2`。 
 
-0 <= nums.length <= 3 * 104
--104 <= nums[i] <= 104
-nums 已按 升序 排列
+你不需要考虑数组中超出新长度后面的元素。
+```
 
-var removeDuplicates = function(nums) {
- let i = 0;
- for(let j = 0; j < nums.length; j++) {
-     console.log(nums[j], 'nums[j]', nums[i], 'nums[i]')
-  // 遍历数组
-  if(nums[j] != nums[i]) {
-   nums[++i] = nums[j];
-      console.log(nums[++i], 'nums[++i]');
-  }
-    console.log(i, 'i')
- }
- return ++i;
-};
+```
+给定nums= [0,0,1,1,1,2,2,3,3,4],
 
-removeDuplicates([1,1,2])
+函数应该返回新的长度 5, 并且原数组 nums的前五个元素被修改为 `0`, `1`, `2`, `3`, `4`。
 
-1 'nums[j]' 1 'nums[i]'
-0 'i'
-
-1 'nums[j]' 1 'nums[i]'
-0 'i'
-
-2 'nums[j]' 1 'nums[i]'
-2 'nums[++i]'
-
-2 'i'
-
-3
+你不需要考虑数组中超出新长度后面的元素。
+```
 
  */
-//(76 ms)
+// (64 ms)
+// var removeDuplicates = function(nums) {
+//  let k = 0
+//  // 遍历数组
+//  for(let i = 0; i < nums.length; i++) {
+//     if(i === 0 || nums[i] - nums[k-1] > 0) {
+//       nums[k++] = nums[i]
+//     }
+//  }
+//  return k
+// }
+//(76 ms) 返回新数组的长度
+
 var removeDuplicates = function(nums) {
- let i = 0;
- for(let j = 0; j < nums.length; j++) {
-  // 遍历数组
-  if(nums[j] != nums[i]) {
-   nums[++i] = nums[j];
-  }
- }
- return ++i;
-};
+   let j = 0;
+   // 遍历数组
+   for(let i = 0; i < nums.length; i++) {
+      let cur = nums[i]
+      if(cur !== nums[j]) {
+         nums[++j] = cur
+      }
+   }
+   return ++j;
+}
 // @lc code=end
 
