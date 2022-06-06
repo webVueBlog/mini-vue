@@ -8,86 +8,46 @@
 /**
  * @param {string} digits
  * @return {string[]}
- * 给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。
+难度：Middle
 
-给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
+相关话题：`字符串`、`回溯算法`
 
-提示：
+给定一个仅包含数字 `2-9` 的字符串，返回所有它能表示的字母组合。
 
-0 <= digits.length <= 4
-digits[i] 是范围 ['2', '9'] 的一个数字。
+```
+输入："23"
+输出：["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+```
 
-输入：digits = "23"
-输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]
+尽管上面的答案是按字典序排列的，但是你可以任意选择答案输出的顺序。
 
-输入：digits = ""
-输出：[]
+思路：
 
-输入：digits = "2"
-输出：["a","b","c"]
+`回溯算法`，对每一个数字上的每一个字母都要进行全排列处理。
 
- (76 ms)
  */
- // (68 ms)
+ // (56 ms)
 var letterCombinations = function(digits) {
- if(!digits) return []
- let numMap = new Map([
- ['1', ''],
- ['0', ''],
- ['2', 'abc'],
- ['3', 'def'],
- ['4', 'ghi'],
- ['5', 'jkl'],
- ['6', 'mno'],
- ['7', 'pqrs'],
- ['8', 'tuv'],
- ['9', 'wxyz']
- ])
- let res = []
- function dfs(start, path) {
-  if(path.length === digits.length) {
-   res.push(path.join(''))
+ if (digits === '') return []
+ let alphArr=[null,null,'abc','def','ghi','jkl','mno','pqrs','tuv','wxyz']
+ let len = digits.length // 字符串的长度
+ let result = []
+ function bt(result,temp,len,digits,start){
+  // 判断条件
+  if(temp.length === len) {
+   result.push(temp)
+   return
   }
-  if(start >= digits.length) return
-  let row = numMap.get(digits[start])
-  // 遍历横轴
-  for(let i = 0; i < row.length; i++) {
-   path.push(row[i])
-   dfs(start+1,path)
-   path.pop()
+  // 获取字符串 abc
+  let cur = alphArr[digits[start]]
+  for(let i = 0; i < cur.length; i++) {
+   // 遍历当前cur字符串
+   bt(result, temp+cur[i], len, digits, start+1)
   }
  }
- dfs(0, [])
- return res
+ bt(result,'',len,digits,0) // 结果[] '', 字符数值长度, 数值字符串, 0开始
+ return result
 }
 
-// var letterCombinations = function(digits) {
-//  // 字符串为null，或者长度为0，返回空字符串
-//  if(digits == null || digits.length === 0) return [];
-//  const map = {
-//   2: 'abc',
-//   3: 'def',
-//   4: 'ghi',
-//   5: 'jkl',
-//   6: 'mno',
-//   7: 'pqrs',
-//   8: 'tuv',
-//   9: 'wxyz',
-//  };
-//  // 创建答案
-//  const res = [];
-//  const go = (i, s) => {
-//   // 如果i为字符串的长度 '2'
-//   if(i === digits.length) {
-//    res.push(s);
-//    return;
-//   }
-//   for(const c of map[digits[i]]) { // map[2[0]]
-//    go(i + 1, s + c); // ''+'a'
-//   }
-//  };
-//  go(0, '');
-//  return res;
-// };
 // @lc code=end
 
