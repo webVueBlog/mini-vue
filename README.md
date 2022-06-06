@@ -33,7 +33,7 @@
 
 ## JavaScript - 该目录下
 
-- 不容易想明白的promise面试题
+- [不容易想明白的promise面试题](./JavaScript/cookie的有效时间设置为0会怎么样.md)
 - cookie的有效时间设置为0会怎么样
 - Object与Map有什么区别
 - postMessage有哪些使用场景
