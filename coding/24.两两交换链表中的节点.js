@@ -39,28 +39,38 @@
 
  (72 ms)
  */
+//  (60 ms)
 var swapPairs = function(head) {
- // 如果当前节点不存在 为null
- if(!head) return null
- // 初始为一个空节点
- let root = new ListNode(null)
- // 指向头节点
- root.next = head
- // 初始`startNode`为额外空节点
- let startNode = root
- // 临时头节点
- let node = root.next
- // 检查`Node(1)`和`Node(2)`都存在
- // null-> 1->2 -> 3->4
- while(node && node.next) {
-  let nxt = node.next
-  node.next = nxt.next
-  startNode.next = nxt
-  nxt.next = node
-  startNode = node
-  node = node.next
- }
- return root.next
-};
+ if(!head || !head.next) return head;
+
+ const next = head.next;
+ head.next = swapPairs(next.next);
+ next.next = head;
+
+ return next;
+}
+// var swapPairs = function(head) {
+//  // 如果当前节点不存在 为null
+//  if(!head) return null
+//  // 初始为一个空节点
+//  let root = new ListNode(null)
+//  // 指向头节点
+//  root.next = head
+//  // 初始`startNode`为额外空节点
+//  let startNode = root
+//  // 临时头节点
+//  let node = root.next
+//  // 检查`Node(1)`和`Node(2)`都存在
+//  // null-> 1->2 -> 3->4
+//  while(node && node.next) {
+//   let nxt = node.next
+//   node.next = nxt.next
+//   startNode.next = nxt
+//   nxt.next = node
+//   startNode = node
+//   node = node.next
+//  }
+//  return root.next
+// };
 // @lc code=end
 

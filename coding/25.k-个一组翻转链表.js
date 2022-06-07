@@ -55,36 +55,57 @@
 
 当反转`3`时，将`头结点`和`3`相连，`3`和`2`相连，`1`和`4`相连。
 
- (104 ms)
  */
+//  (80 ms)
 var reverseKGroup = function(head, k) {
- // 如果头部节点不存在
- if(!head) return null
- let len = 0, node = head
- while(node) {
-  node=node.next
-  len++
- }
- let root=new ListNode(null)
- root.next=head
- let startNode=root,tailNode=startNode.next
- node=root.next
- let t=Math.floor(len/k)
- while(t-->0){
-  let n=k
-  node=node.next
-  while(n-->1){
-    let secondNode=startNode.next
-    let nxt=node.next
-    startNode.next=node
-    node.next=secondNode
-    tailNode.next=nxt
-    node=nxt
+  let [curr, count] = [head, 0];
+  
+  while(curr && count !== k) {
+    curr = curr.next;
+    count++;
   }
-  startNode=tailNode
-  tailNode=startNode.next
- }
- return root.next
-};
+
+  if(count === k) {
+    curr = reverseKGroup(curr, k);
+
+    while(count--) {
+      [head.next, curr, head] = [curr, head, head.next]
+    }
+
+    head = curr;
+  }
+
+  return head;
+}
+// (104 ms)
+// var reverseKGroup = function(head, k) {
+//  // 如果头部节点不存在
+//  if(!head) return null
+//  let len = 0, node = head
+//  while(node) {
+//   node=node.next
+//   len++
+//  }
+//  let root=new ListNode(null)
+//  root.next=head
+//  let startNode=root,tailNode=startNode.next
+//  node=root.next
+//  let t=Math.floor(len/k)
+//  while(t-->0){
+//   let n=k
+//   node=node.next
+//   while(n-->1){
+//     let secondNode=startNode.next
+//     let nxt=node.next
+//     startNode.next=node
+//     node.next=secondNode
+//     tailNode.next=nxt
+//     node=nxt
+//   }
+//   startNode=tailNode
+//   tailNode=startNode.next
+//  }
+//  return root.next
+// };
 // @lc code=end
 

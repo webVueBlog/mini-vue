@@ -82,30 +82,51 @@ var divide = function(dividend, divisor) {
     这说明`idx`对应的除数是有效的，这个除数就是`1<<idx`，再将`dividend`减去当前除数`divisor * ((1 << idx))`，也就是`(divisor << idx)`。
 
     另外，由于`js`存在位溢出问题，因此在执行位运算时，计算绝对值`let absBit=Math.abs((dividend >> idx))`。 
- (72 ms)
  */
-    var divide = function(dividend, divisor) {
-     let negative=(dividend ^ divisor)<0,
-         limit=Math.pow(2,31)
-     dividend=Math.abs(dividend)
-     divisor=Math.abs(divisor)
-     if(dividend<divisor)return 0
-     
-     let res=0,idx=32
-     while(idx>=0){
-       // JS避免位溢出
-       let absBit=Math.abs((dividend >> idx))
-       if(absBit >= divisor){
-         res+=(1 << idx)
-         dividend-=(divisor << idx)
-       }
-       idx--
-     }
-     if(negative){
-       return Math.max(-res,-limit)
-     }else{
-       return Math.min(res,limit-1)
-     }
-   };
+// (60 ms)
+var divide = function(dividend, divisor) {
+  if(!dividend) return 0;
+
+  const [min, max] = [-(2 ** 31), 2 ** 31 - 1];
+  if(dividend === min && divisor === -1) return max;
+  if(dividend === min && divisor === 1) return min;
+
+  let res = 0;
+  const isNeg = (dividend ^ divisor) < 0;
+  [dividend, divisor] = [Math.abs(dividend), Math.abs(divisor)];
+
+  for(let i = 31; i >= 0; i--) {
+    if(dividend >>> i >= divisor) {
+      res += 1 << i;
+      dividend -= divisor << i;
+    }
+  }
+
+  return isNeg ? -res : res;
+}
+// (72 ms)
+// var divide = function(dividend, divisor) {
+//   let negative=(dividend ^ divisor)<0,
+//       limit=Math.pow(2,31)
+//   dividend=Math.abs(dividend)
+//   divisor=Math.abs(divisor)
+//   if(dividend<divisor)return 0
+  
+//   let res=0,idx=32
+//   while(idx>=0){
+//     // JS避免位溢出
+//     let absBit=Math.abs((dividend >> idx))
+//     if(absBit >= divisor){
+//       res+=(1 << idx)
+//       dividend-=(divisor << idx)
+//     }
+//     idx--
+//   }
+//   if(negative){
+//     return Math.max(-res,-limit)
+//   }else{
+//     return Math.min(res,limit-1)
+//   }
+// };
 // @lc code=end
 
