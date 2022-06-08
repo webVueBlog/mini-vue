@@ -21,16 +21,27 @@
  (76 ms)
  
  */
-// 解法二：快慢指针法
+// (76 ms)
 var hasCycle = function(head) {
- if(!head || head.next === null) return false
- let p = q = head;
- do {
-  p = p.next
-  q = q.next.next
- } while (p!==q && q !== null && q.next !== null)
- return p === q
+ let fast = head;
+ while(fast && fast.next) {
+  head = head.next
+  fast = fast.next.next
+  if(head === fast) return true
+ }
+ return false
 }
+// 解法二：快慢指针法
+
+// var hasCycle = function(head) {
+//  if(!head || head.next === null) return false
+//  let p = q = head;
+//  do {
+//   p = p.next
+//   q = q.next.next
+//  } while (p!==q && q !== null && q.next !== null)
+//  return p === q
+// }
 
 // (148 ms)
 // 解放一：暴力破解法

@@ -76,6 +76,7 @@ var isValid = function(s) {
   // 如果栈为0，true
   return stack.length === 0
 }
+
 // (68 ms)
 // var isValid = function(s) {
 //  const stack = [];

@@ -24,20 +24,40 @@
 
  (68 ms)
  */
-var twoSum = function(nums, target) {
- // 初始化哈希表
- let hash = {}
- // 遍历数组
- for(let i = 0; i < nums.length; i++) {
-  // 判断哈希表的属性值是否存在
-  if(hash[nums[i]] != null) {
-   // 存储值
-   return [hash[nums[i]], i]
+ var twoSum = function(nums, target) {
+  const map = new Map();
+  // 遍历nums
+  for(let i = 0; i < nums.length; i++) {
+   // 当前值
+   let c = nums[i]
+ 
+   // 另一个值
+   let s = target - c;
+ 
+   if(map.has(s)) {
+    return [map.get(s), i]
+   } else {
+    map.set(c, i)
+   }
   }
-  // 值存在，返回I
-  hash[target-nums[i]] = i
  }
-}
+ 
+// var twoSum = function(nums, target) {
+//  // 初始化哈希表
+//  let hash = {}
+//  // 遍历数组
+//  for(let i = 0; i < nums.length; i++) {
+//   // 判断哈希表的属性值是否存在
+//   if(hash[nums[i]] != null) {
+//    // 存储值
+//    return [hash[nums[i]], i]
+//   }
+//   // 值存在，返回I
+//   hash[target-nums[i]] = i
+//  }
+// }
+
+
 // var twoSum = function(nums, target) {
 //  let map = new Map();
 //  for(let i = 0; i < nums.length; i++) {
