@@ -29,10 +29,7 @@
  (200 ms)
  */
 var minDepth = function(root) {
- if (root === null) return 0;
- if (root.left === null) return minDepth(root.right) + 1;
- if (root.right === null) return minDepth(root.left) + 1;
- return Math.min( minDepth(root.left), minDepth(root.right) ) + 1;
+ return root ? ( root.left && root.right ? Math.min(minDepth(root.left), minDepth(root.right)) + 1 : root.left ? minDepth(root.left) + 1 : minDepth(root.right) + 1 ) : 0
 };
 // @lc code=end
 
