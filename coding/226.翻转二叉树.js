@@ -17,10 +17,21 @@
  * @param {TreeNode} root
  * @return {TreeNode}
  */
+// (56 ms)
 function invertTree(root) {
-  if (root == null) return root;
-  [root.left, root.right] = [invertTree(root.right), invertTree(root.left)];
-  return root;
+ if(!root) return root;
+ [root.left, root.right] = [invertTree(root.right), invertTree(root.left)];
+ return root;
 }
+
+// (64 ms)
+// function invertTree(root) {
+//  if(!root) return null
+//  return {
+//   val: root.val,
+//   left: invertTree(root.right),
+//   right: invertTree(root.left)
+//  }
+// }
 // @lc code=end
 
