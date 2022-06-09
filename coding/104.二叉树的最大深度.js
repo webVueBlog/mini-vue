@@ -36,6 +36,14 @@ var maxDepth = function(root) {
     return root ? Math.max(maxDepth(root.left), maxDepth(root.right)) + 1 : 0
 };
 
+// var maxDepth = function(root) {
+//     if(root === undefined || root===null){
+//         return 0;
+//     }
+//     return Math.max(maxDepth(root.left),maxDepth(root.right)) + 1;
+// };
+
+
 // var maxDepth = function (root) {
 //     // 定义一个变量来记录层级
 //     let res = 0;
