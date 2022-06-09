@@ -17,23 +17,44 @@
 /**
  * @param {number} n
  * @return {number}
- (56 ms)
+
+-1：我选出的数字比你猜的数字小 pick < num
+1：我选出的数字比你猜的数字大 pick > num
+0：我选出的数字和你猜的数字一样。恭喜！你猜对了！pick == num
+
  */
- // (52 ms)
+ // (48 ms)
 var guessNumber = function(n) {
- const rec = (low, high) => {
-  const mid = Math.floor((low + high) / 2)
-  const res = guess(mid)
+ let low = 1, high = n;
+ while(low <= high) {
+  let mid = Math.floor((low + high) / 2)
+  let res = guess(mid)
   if(res === 0) {
    return mid
-  } else if(res === 1) {
-   return rec(mid + 1, high)
-  } else {
-   return rec(low, mid - 1)
+  } else if(res === 1) { // pick > num
+   low = mid + 1
+  } else { //  pick < num
+   high = mid - 1
   }
  }
- return rec(1, n)
 }
+
+
+// var guessNumber = function(n) {
+//  const rec = (low, high) => {
+//   const mid = Math.floor((low + high) / 2)
+//   const res = guess(mid)
+//   if(res === 0) {
+//    return mid
+//   } else if(res === 1) {
+//    return rec(mid + 1, high)
+//   } else {
+//    return rec(low, mid - 1)
+//   }
+//  }
+//  return rec(1, n)
+// }
+
  // (60 ms)
 // var guessNumber = function(n) {
 //  let low = 1, hight = n;
@@ -50,6 +71,7 @@ var guessNumber = function(n) {
 //  }
 // }
 
+//  (72 ms)
 // var guessNumber = function(n) {
 //     let l = 0, r = n -1;
 //     while(l <= r) {

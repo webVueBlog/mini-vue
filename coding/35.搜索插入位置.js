@@ -36,25 +36,39 @@ nums 为 无重复元素 的 升序 排列数组
 
  (52 ms)
  */
+
 var searchInsert = function(nums, target) {
  // 如果是最后一个
  if(nums[nums.length - 1] < target) return nums.length
- function bs(arr, n) {
-  // arr数组，n目标值
-  let lo = 0, hi = arr.length - 1
-  while(lo < hi) {
-   // 中间值
-   let mid = Math.floor((lo+hi) / 2)
-   if(arr[mid] < n) {
-    lo = mid + 1
-   } else {
-    hi = mid
-   }
+ 
+ // arr数组，n目标值 索引
+ let lo = 0, hi = nums.length - 1
+ 
+ while(lo < hi) {
+  // 中间值
+  let mid = Math.floor((lo+hi) / 2)
+  if(nums[mid] < target) { // lo mid target hi
+   lo = mid + 1
+  } else { // 0 target  mid
+   hi = mid
   }
-  return hi
  }
- return bs(nums, target)
+ return hi
 }
+
+
+//  (88 ms)
+// var searchInsert = function(nums, target) {
+//  for(let i = 0; i < nums.length; i++) {
+//   if(nums[i] >= target) {
+//    return i
+//   } else if(nums[nums.length-1] < target) {
+//    return nums.length
+//   }
+//  }
+// }
+
+
 // var searchInsert = function(nums, target) {
 //  return binarySearch(nums, target, 0, nums.length - 1);
 // };
