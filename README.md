@@ -1,5 +1,7 @@
 # 手写 && 源码 && 笔记
 
+中文 | 英文
+
 友情链接
 
 - [nice-js-leetcode](https://github.com/nice-people-frontend-community/nice-js-leetcode)
