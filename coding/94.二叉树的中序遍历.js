@@ -23,26 +23,23 @@
 
 时间复杂度，空间复杂度 O(N)
  */
-// (60)
+// 递归 左 中 右 64
 // var inorderTraversal = function (root) {
-//   // 递归
 //   const res = []
 //   const inorder = (root) => {
 //     if(!root) return
-
-//     // 先遍历左
+//     // 左
 //     inorder(root.left)
-//     // 获取中间值
 //     res.push(root.val)
-//     // 在遍历右
+//     // 右
 //     inorder(root.right)
 //   }
 //   inorder(root)
 //   return res
 // }
 
+// 非递归 用栈 左中右 右中左
 var inorderTraversal = function (root) {
-  // 非递归 用栈 左中右 右中左
   const res = [];
   const stack = [];
   let p = root;
@@ -56,27 +53,7 @@ var inorderTraversal = function (root) {
     p = n.right
   }
   return res;
-}
-
-// var inorderTraversal = function (root) {
-//   const stack = [];
-//   const ans = [];
-//   // root
-//   while(root || stack.length) {
-//     // 为了先入栈 中，左
-//     while(root) {
-//       stack.push(root)
-//       root = root.left
-//     }
-//     // 先放入 root, root.left，然后再取出
-    
-//     // 取出左，中，放入值
-//     root = stack.pop() // 先左
-//     ans.push(root.val)
-//     root = root.right
-//   }
-//   return ans;
-// };
+};
 
 // @lc code=end
 

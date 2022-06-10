@@ -39,40 +39,42 @@
 
 (60 ms)
  */
-var levelOrder = function(root) {
-    let q = [root], ans = []
-    while (q[0]) {
-        let qlen = q.length, row = []
-        for (let i = 0; i < qlen; i++) {
-            let curr = q.shift()
-            row.push(curr.val)
-            if (curr.left) q.push(curr.left)
-            if (curr.right) q.push(curr.right)
-        }
-        ans.push(row)            
-    }
-    return ans
-};
-
-// var levelOrder = function (root) {
-
-//     if (!root) { return [] }
-//     const stack = [[root, 0]]; // 记录层级，默认为0
-
-//     let res = [];
-//     while (stack.length) {
-//         // 抛出栈头
-//         const [n, l] = stack.shift();
-//         // 层级记录了，那么就需要把值根据层级放入数组
-//         if (!res[l]) {
-//             res.push([n.val])
-//         } else {
-//             res[l].push(n.val)
+// var levelOrder = function(root) {
+//     let q = [root], ans = []
+//     while (q[0]) {
+//         let qlen = q.length, row = []
+//         for (let i = 0; i < qlen; i++) {
+//             let curr = q.shift()
+//             row.push(curr.val)
+//             if (curr.left) q.push(curr.left)
+//             if (curr.right) q.push(curr.right)
 //         }
-
-//         if (n.left) { stack.push([n.left, l + 1]) };
-//         if (n.right) { stack.push([n.right, l + 1]) }
+//         ans.push(row)            
 //     }
-//     return res
+//     return ans
 // };
+
+
+
+var levelOrder = function (root) {
+
+    if (!root) { return [] }
+    const stack = [[root, 0]]; // 记录层级，默认为0
+
+    let res = [];
+    while (stack.length) {
+        // 抛出栈头
+        const [n, l] = stack.shift();
+        // 层级记录了，那么就需要把值根据层级放入数组
+        if (!res[l]) {
+            res.push([n.val])
+        } else {
+            res[l].push(n.val)
+        }
+
+        if (n.left) { stack.push([n.left, l + 1]) };
+        if (n.right) { stack.push([n.right, l + 1]) }
+    }
+    return res
+};
 // @lc code=end

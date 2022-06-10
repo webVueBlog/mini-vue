@@ -40,38 +40,19 @@
         - 空数组，无子节点。
 (88 ms)
  */
-//  (92 ms)
 const constructMaximumBinaryTree = function(nums) {
     const buildTree = (arr, left, right) => {
-        if (left > right) {
-            return null
+        if(left > right) return null
+        let max = left
+        for(let i = left; i <= right; i++) {
+            if(arr[i] > arr[max]) max = i
         }
-        let maxVal = -1;
-        let maxIndex = -1;
-        for (let i = left; i <= right; ++i) {
-            if (arr[i] > maxVal) {
-                maxVal = arr[i];
-                maxIndex = i
-            }
-        }
-        let node = new TreeNode(maxVal);
-        node.left = buildTree(arr, left, maxIndex - 1);
-        node.right = buildTree(arr, maxIndex + 1, right);
+        const node = new TreeNode(arr[max])
+        node.left = buildTree(arr, left, max - 1);
+        node.right = buildTree(arr, max + 1, right);
         return node;
     }
-    let root = buildTree(nums, 0, nums.length - 1);
-    return root;
-};
+    return buildTree(nums, 0, nums.length - 1);
+}
 
-// const constructMaximumBinaryTree = (nums, low = 0, high = nums.length - 1) => {
-//     if (low > high) return null
-//     let i = low
-//     for (let j = low + 1; j <= high; j++) {
-//         if (nums[j] > nums[i]) i = j
-//     }
-//     const root = new TreeNode(nums[i])
-//     root.left = constructMaximumBinaryTree(nums, low, i - 1)
-//     root.right = constructMaximumBinaryTree(nums, i + 1, high)
-//     return root
-// };
 // @lc code=end

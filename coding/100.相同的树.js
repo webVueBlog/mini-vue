@@ -28,8 +28,31 @@
 //  return isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
 // };
 
-var isSameTree = function(p, q) {
- return !p && !q ? true : (!p || !q || p.val !== q.val ? false : isSameTree(p.left, q.left) && isSameTree(p.right, q.right))
-}
+// var isSameTree = function(p, q) {
+//  return !p && !q ? true : (!p || !q || p.val !== q.val ? false : isSameTree(p.left, q.left) && isSameTree(p.right, q.right))
+// }
+
+// function isSameTree(p, q) {
+//   if (!p && !q) return true;
+//   if (!p || !q || p.val !== q.val) return false;
+  
+//   return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+// }
+
+var isSameTree = function (p, q) {
+  // 直接比较两棵树
+  if (!p && !q) return true;
+
+  if (
+      p && q &&
+      p.val === q.val &&
+      isSameTree(p.left, q.left) &&
+      isSameTree(p.right, q.right)
+  ) {
+      return true
+  } else {
+      return false
+  }
+};
 // @lc code=end
 
