@@ -16,15 +16,26 @@
 /**
  * @param {TreeNode} root
  * @return {string[]}
+输入：root = [1,2,3,null,5]
+输出：["1->2->5","1->3"]
+
+输入：root = [1]
+输出：["1"]
+
+ (56 ms)
  */
 var binaryTreePaths = function(root) {
- if(root === null) return [];
- else if(root.left === null && root.right === null) return [`${root.val}`];
- else {
-  let left = binaryTreePaths(root.left).map(x => root.val + '->' + x);
-  let right = binaryTreePaths(root.right).map(x => root.val + '->' + x);
-  return [...left, ...right];
- }
+ return !root ? [] : (root.left === null && root.right === null ? [`${root.val}`] : [...(binaryTreePaths(root.left).map(x=>root.val + '->' + x)), ...(binaryTreePaths(root.right).map(x=>root.val + '->' + x))])
 };
+
+// var binaryTreePaths = function(root) {
+//  if(root === null) return [];
+//  else if(root.left === null && root.right === null) return [`${root.val}`];
+//  else {
+//   let left = binaryTreePaths(root.left).map(x => root.val + '->' + x);
+//   let right = binaryTreePaths(root.right).map(x => root.val + '->' + x);
+//   return [...left, ...right];
+//  }
+// }
 // @lc code=end
 
