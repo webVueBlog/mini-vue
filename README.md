@@ -78,6 +78,11 @@
 - [cookie的有效时间设置为0会怎么样](./JavaScript/cookie的有效时间设置为0会怎么样.md)
 - [Object与Map有什么区别](./JavaScript/Object与Map有什么区别.md)
 - [postMessage有哪些使用场景](./JavaScript/postMessage有哪些使用场景.md)
+- [手写call和apply](./JavaScript/手写call和apply.md)
+- [手写bind](./JavaScript/手写bind.md)
+- [手写new](./JavaScript/手写new.md)
+- [蚂蚁金服异步串行面试题-借鉴Promise原理实现](./JavaScript/蚂蚁金服异步串行面试题-借鉴Promise原理实现.md)
+
 
 ## js-leetcode目录下 ✔
 
