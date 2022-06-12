@@ -24,24 +24,37 @@
 
  (68 ms)
  */
- var twoSum = function(nums, target) {
-  const map = new Map();
-  // 遍历nums
-  for(let i = 0; i < nums.length; i++) {
-   // 当前值
-   let c = nums[i]
+ // var twoSum = function(nums, target) {
+ //  const map = new Map();
+ //  // 遍历nums
+ //  for(let i = 0; i < nums.length; i++) {
+ //   // 当前值
+ //   let c = nums[i]
  
-   // 另一个值
-   let s = target - c;
+ //   // 另一个值
+ //   let s = target - c;
  
-   if(map.has(s)) {
-    return [map.get(s), i]
-   } else {
-    map.set(c, i)
-   }
+ //   if(map.has(s)) {
+ //    return [map.get(s), i]
+ //   } else {
+ //    map.set(c, i)
+ //   }
+ //  }
+ // }
+
+
+var twoSum = function(nums, target) {
+ const map = new Map();
+ for(let i = 0; i < nums.length; i++) {
+  let c = nums[i];
+  let s = target - c;
+  if(map.has(s)) {
+   return [map.get(s), i];
+  } else {
+   map.set(c, i);
   }
  }
- 
+}
 // var twoSum = function(nums, target) {
 //  // 初始化哈希表
 //  let hash = {}
