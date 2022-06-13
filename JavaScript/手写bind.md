@@ -243,6 +243,21 @@ Function.prototype.bind2 = function(context) {
 }
 ```
 
-
+```js
+Function.prototype.bind2 = function (context) {
+    if (typeof this !== 'function') {
+        throw new TypeError('请输入一个函数')
+    }
+    let args = [...arguments].slice(1);
+    let self = this;
+    let fBound = function () {
+        args = [...args, ...arguments];
+        return self.apply(this instanceof fBound ? this : context, args)
+    }
+    
+    fBound.prototype = Object.create(this.prototype);
+    return fBound;
+}
+```
 
 

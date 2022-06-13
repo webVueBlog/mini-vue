@@ -215,11 +215,11 @@ Function.prototype.call2 = function (context = window, ...args) {
 };
 
 Function.prototype.myCall = function(context) {
- var context = Object(context) || window
- context.fn = this
- var args = [...arguments].slice(1)
- var result = context.fn(...args)
- delete context.fn
+ context = Object(context) || window
+ const key = Symbol('fn');
+ let args = [...arguments].slice(1) || [];
+ let res = context[key](...args);
+ delete context[key];
  return result
 }
 ```
@@ -237,14 +237,24 @@ Function.prototype.apply2 = function (context = window, args = []) {
 
 Function.prototype.myApply = function (context) {
     var context = Object(context) || window
-    context.fn = this
+    const key = Symbol('fn');
+    context[key] = this;
     var result
     if (arguments[1]) {
-        result = context.fn(...arguments[1])
+        result = context[key](...arguments[1])
     } else {
-        result = context.fn()
+        result = context[key]()
     }
-    delete context.fn
+    delete delete context[key];
+    return result
+}
+
+Function.prototype.myApply = function (context, args = []) {
+    var context = Object(context) || window
+    const key = Symbol('fn');
+    context[key] = this;
+    var result = context[key](...arguments)
+    delete delete context[key];
     return result
 }
 ```
