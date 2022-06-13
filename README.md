@@ -85,6 +85,7 @@
 - [实现一个sum函数](./JavaScript/实现一个sum函数.md)
 - [手写一个偏函数](./JavaScript/手写一个偏函数.md)
 - [查看this输出和原型链输出的系列问题](./JavaScript/查看this输出和原型链输出的系列问题.md)
+- [实现instanceof](./JavaScript/实现instanceof.md)
 - [蚂蚁金服异步串行面试题-借鉴Promise原理实现](./JavaScript/蚂蚁金服异步串行面试题-借鉴Promise原理实现.md)
 
 
