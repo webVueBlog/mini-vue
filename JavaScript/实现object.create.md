@@ -81,21 +81,21 @@ const create = function (prop, props) {
  * @param {undefined | object} propertiesObject 对象
  */
 const create = (proto, propertiesObject) => {
-  if (typeof proto !== 'object' && typeof proto !== null) {
+  if(typeof proto !== 'object' && typeof proto !== null) {
     throw 'TypeError';
   }
   function F() {}
   F.prototype = proto;
   const o = new F();
 
-  if (propertiesObject !== undefined) {
+  if(propertiesObject !== undefined) {
     Object.defineProperties(o, propertiesObject);
   }
-  if (proto === null) {
+  if(proto === null) {
     o.__proto__ = null;
   }
   return o;
-};
+}
 ```
 
 
