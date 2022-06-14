@@ -25,32 +25,30 @@
 输出：3
 (76 ms)
  */
-var kthSmallest = function(root, k) {
- let [n, res] = [0, 0]
- const dfs =  node => {
-  if(!node) return
-
-  dfs(node.left)
-  if(n++ < k) res = node.val
-  dfs(node.right)
- }
-
- dfs(root)
- return res
-}
-
 // var kthSmallest = function(root, k) {
-//  let vals = [];
-//  (function dfs(node) {
-//   if(node.left) {
-//    dfs(node.left);
-//   }
-//   vals.push(node.val);
-//   if(node.right) {
-//    dfs(node.right)
-//   }
-//  })(root)
-//  return vals[k-1];
-// };
+//  let [n, res] = [0, 0]
+//  const dfs =  node => {
+//   if(!node) return
+
+//   dfs(node.left)
+//   if(n++ < k) res = node.val
+//   dfs(node.right)
+//  }
+
+//  dfs(root)
+//  return res
+// }
+
+var kthSmallest = function(root, k) {
+ let vals = [];
+ (function dfs(node) {
+  if(vals.length != k) {
+   if(node.left) dfs(node.left);
+   vals.push(node.val);
+   if(node.right) dfs(node.right);
+  }
+ })(root)
+ return vals[k-1];
+};
 // @lc code=end
 

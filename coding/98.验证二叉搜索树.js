@@ -34,11 +34,26 @@
 
  (68 ms)
  */
-var isValidBST = function(root, min=null, max=null) {
- if (!root) return true;
- if (min && root.val <= min.val) return false;
- if (max && root.val >= max.val) return false;
- return isValidBST(root.left, min, root) && isValidBST(root.right, root, max);
+
+var isValidBST = function (root) {
+    const isBST = (root, min, max) => {
+        if (!root) return true;
+        // 节点的左子树只包含 小于 当前节点的数。
+        // 节点的右子树只包含 大于 当前节点的数。
+        if (min !== null && root.val <= min.val) return false;
+        if (max !== null && root.val >= max.val) return false;
+
+        return isBST(root.left, min, root)
+            && isBST(root.right, root, max);
+    }
+    return isBST(root, null, null);
 };
+
+// var isValidBST = function(root, min=null, max=null) {
+//  if (!root) return true;
+//  if (min && root.val <= min.val) return false;
+//  if (max && root.val >= max.val) return false;
+//  return isValidBST(root.left, min, root) && isValidBST(root.right, root, max);
+// };
 // @lc code=end
 
