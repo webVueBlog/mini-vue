@@ -89,6 +89,7 @@
 - [实现object.create](./JavaScript/实现object.create.md)
 - [实现object.assign](./JavaScript/实现object.assign.md)
 - [实现原型链继承、借用构造函数继承、组合继承](./JavaScript/实现原型链继承、借用构造函数继承、组合继承.md)
+- [原型式继承、寄生式继承、寄生组合式继承](./JavaScript/原型式继承、寄生式继承、寄生组合式继承.md)
 - [蚂蚁金服异步串行面试题-借鉴Promise原理实现](./JavaScript/蚂蚁金服异步串行面试题-借鉴Promise原理实现.md)
 
 
