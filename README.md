@@ -101,6 +101,7 @@
 - [promise的finally原型方法实现](./JavaScript/promise的finally原型方法实现.md)
 - [promise串行写法](./JavaScript/promise串行写法.md)
 - [借鉴Promise原理实现题目](./JavaScript/借鉴Promise原理实现题目.md)
+- [Promise实现一个红绿灯](./JavaScript/Promise实现一个红绿灯.md)
 - [蚂蚁金服异步串行面试题-借鉴Promise原理实现](./JavaScript/蚂蚁金服异步串行面试题-借鉴Promise原理实现.md)
 
 
