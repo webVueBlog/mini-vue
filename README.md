@@ -92,6 +92,15 @@
 - [原型式继承、寄生式继承、寄生组合式继承](./JavaScript/原型式继承、寄生式继承、寄生组合式继承.md)
 - [ES6中的class继承与ES5继承的区别](./JavaScript/ES6中的class继承与ES5继承的区别.md)
 - [实现一个深拷贝](./JavaScript/实现一个深拷贝.md)
+- [promise类框架](./JavaScript/promise类框架.md)
+- [完善类里面的resolve、reject原型函数](./JavaScript/完善类里面的resolve、reject原型函数.md)
+- [完成promise的then链式调用](./JavaScript/完成promise的then链式调用.md)
+- [promise的all、race静态方法](./JavaScript/promise的all、race静态方法.md)
+- [promise的resolve、reject静态方法](./JavaScript/promise的resolve、reject静态方法.md)
+- [promise的any、allsettled静态方法](./JavaScript/promise的any、allsettled静态方法.md)
+- [promise的finally原型方法实现](./JavaScript/promise的finally原型方法实现.md)
+- [promise串行写法](./JavaScript/promise串行写法.md)
+- [借鉴Promise原理实现题目](./JavaScript/借鉴Promise原理实现题目.md)
 - [蚂蚁金服异步串行面试题-借鉴Promise原理实现](./JavaScript/蚂蚁金服异步串行面试题-借鉴Promise原理实现.md)
 
 
