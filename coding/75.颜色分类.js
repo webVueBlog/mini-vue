@@ -26,11 +26,30 @@
 
 
 
+思路：
+
+定义一个`startIdx`，表示当前从哪个索引开始检查，遍历`s`，并且通过`map`保存当前检查的字母，
+
+如果当前字母在`map`中存在，并且它对应的索引在`startIdx`之后，说明这个字母在当前的检查范围内重复了，需要更新`startIdx`；
+
+如果这个字母对应的索引在`startIdx`之前，说明虽然重复，但不在当前检查范围内，因此不需任何操作。
+
 
 
  */
 var sortColors = function(nums) {
-
+    let l=0,r=nums.length-1
+    let pivot=1
+    for(let i=0;i<=r;i++){
+      if(nums[i]<pivot) swap(nums,i,l++)
+      else if(nums[i]>pivot) swap(nums,i--,r--)
+    }
+    function swap(arr,i,j){
+      let t=arr[i]
+      arr[i]=arr[j]
+      arr[j]=t
+    }
+    return nums
 };
 // @lc code=end
 
