@@ -62,6 +62,27 @@ function lengthOfLongestSubstring(s) {
   return max
 }
 
+// var lengthOfLongestSubstring = function (s) {
+//     // 滑动窗口维护最长子串
+//     let res = 0, l = 0, r = 0;
+//     let map = new Map();
+
+//     while (r < s.length) {
+//         // 记录当前值
+//         let c = s[r];
+//         r += 1;
+//         map.set(c, (map.get(c) || 0) + 1);
+//         // 判断是否收缩，当存在重复元素
+//         while (map.get(c) > 1) {
+//             let d = s[l]
+//             l += 1;
+//             map.set(d, map.get(d) - 1);
+//         }
+//         res = Math.max(res, r - l)
+//     }
+//     return res
+// };
+
 // 这个可以看懂
 // function lengthOfLongestSubstring(s) {
 //   const map = {};

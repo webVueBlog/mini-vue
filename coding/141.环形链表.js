@@ -22,15 +22,35 @@
  
  */
 // (76 ms)
-var hasCycle = function(head) {
- let fast = head;
- while(fast && fast.next) {
-  head = head.next
-  fast = fast.next.next
-  if(head === fast) return true
- }
- return false
-}
+var hasCycle = function (head) {
+    // 1.成环形即被超一圈，可以理解成操场跑操，快的同学是否把慢的同学超过一圈
+    let p1 = head;
+    let p2 = head;
+
+    while (p1 && p1.next && p2) {
+
+        // p1为快指针，p2为慢指针
+        p1 = p1.next.next;
+        p2 = p2.next;
+
+        // 如果值相同了，表示成环了
+        if (p1 === p2) {
+            return true
+        }
+    }
+
+    return false
+};
+
+// var hasCycle = function(head) {
+//  let fast = head;
+//  while(fast && fast.next) {
+//   head = head.next
+//   fast = fast.next.next
+//   if(head === fast) return true
+//  }
+//  return false
+// }
 // 解法二：快慢指针法
 
 // var hasCycle = function(head) {

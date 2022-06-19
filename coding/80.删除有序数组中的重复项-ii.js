@@ -24,14 +24,29 @@
 替换`nums[k++]`，其中`k`为一个索引，`k`之前代表都是符合条件的数值。
 
  */
-var removeDuplicates = function(nums) {
- let k = 0
- for(let i = 0; i < nums.length; i++) {
-  if(i < 2 || nums[i] > nums[k-2]) {
-   nums[k++] = nums[i]
-  }
- }
- return k
+// var removeDuplicates = function(nums) {
+//  let k = 0
+//  for(let i = 0; i < nums.length; i++) {
+//   if(i < 2 || nums[i] > nums[k-2]) {
+//    nums[k++] = nums[i]
+//   }
+//  }
+//  return k
+// };
+
+var removeDuplicates = function (nums) {
+    // 同样快慢,保留2个，所以是以2为倍数
+    let n = nums.length, s = 2, f = 2;
+    if (n <= 2) return n;
+
+    while (f < n) {
+        if (nums[s - 2] != nums[f]) {
+            nums[s] = nums[f];
+            s += 1
+        }
+        f += 1
+    }
+    return s;
 };
 // @lc code=end
 

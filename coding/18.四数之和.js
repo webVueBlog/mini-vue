@@ -34,33 +34,67 @@
  (72 ms)
 
  */
-var fourSum = function(nums, target) {
-  // 把数组排序好，方便去重
-  nums.sort((a,b) => a-b)
-  let res = []
-  for(let i = 0; i < nums.length - 3; i++) {
-    if(i>0 && nums[i] === nums[i-1]) continue
-    for(let j = i + 1; j < nums.length-2; j++) {
-      if(j > i+1 && nums[j] === nums[j - 1]) continue
-      let targ = target - (nums[i] + nums[j])
-      let lo = j + 1, hi = nums.length - 1
-      while(lo < hi) {
-        let sum = nums[lo] + nums[hi]
-        if(sum > targ) {
-          hi--
-        }else if(sum < targ) {
-          lo++
-        }else {
-          res.push([nums[i], nums[j], nums[lo], nums[hi]])
-          while(nums[lo] === nums[lo+1]) lo++
-          while(nums[hi] === nums[hi-1]) hi--
-          lo++
-          hi--
+var fourSum = function (nums, target) {
+    if (nums.length < 4) return [];
+
+    // 双指针套路,排序
+    nums.sort((a, b) => a - b);
+    let res = [];
+    for (let i = 0; i < nums.length - 3; i += 1) {
+        // 如果遇到重复的数字，则跳过
+        if (i > 0 && nums[i] == nums[i - 1]) continue;
+        for (let j = i + 1; j < nums.length - 2; j += 1) {
+            // 如果遇到重复的数字，则跳过
+            if (j > i + 1 && nums[j] == nums[j - 1]) continue;
+            const twoSum = nums[i] + nums[j];
+
+            let l = j + 1, r = nums.length - 1;
+            // 套路循环
+            while (l < r) {
+                const sum = twoSum + nums[l] + nums[r]
+                if (sum == target) {
+                    res.push([nums[i], nums[j], nums[l], nums[r]])
+                    // 去重
+                    while (l < r && nums[l] == nums[++l]);
+                    while (l < r && nums[r] == nums[--r]);
+                } else if (sum < target) {
+                    l++
+                } else {
+                    r--
+                }
+            }
         }
-      }
     }
-  }
-  return res
+    return res
 };
+
+// var fourSum = function(nums, target) {
+//   // 把数组排序好，方便去重
+//   nums.sort((a,b) => a-b)
+//   let res = []
+//   for(let i = 0; i < nums.length - 3; i++) {
+//     if(i>0 && nums[i] === nums[i-1]) continue
+//     for(let j = i + 1; j < nums.length-2; j++) {
+//       if(j > i+1 && nums[j] === nums[j - 1]) continue
+//       let targ = target - (nums[i] + nums[j])
+//       let lo = j + 1, hi = nums.length - 1
+//       while(lo < hi) {
+//         let sum = nums[lo] + nums[hi]
+//         if(sum > targ) {
+//           hi--
+//         }else if(sum < targ) {
+//           lo++
+//         }else {
+//           res.push([nums[i], nums[j], nums[lo], nums[hi]])
+//           while(nums[lo] === nums[lo+1]) lo++
+//           while(nums[hi] === nums[hi-1]) hi--
+//           lo++
+//           hi--
+//         }
+//       }
+//     }
+//   }
+//   return res
+// };
 // @lc code=end
 

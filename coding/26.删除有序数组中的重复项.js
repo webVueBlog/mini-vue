@@ -42,16 +42,32 @@
 // }
 //(76 ms) 返回新数组的长度
 
-var removeDuplicates = function(nums) {
-   let j = 0;
-   // 遍历数组
-   for(let i = 0; i < nums.length; i++) {
-      let cur = nums[i]
-      if(cur !== nums[j]) {
-         nums[++j] = cur
-      }
-   }
-   return ++j;
-}
+// var removeDuplicates = function(nums) {
+//    let j = 0;
+//    // 遍历数组
+//    for(let i = 0; i < nums.length; i++) {
+//       let cur = nums[i]
+//       if(cur !== nums[j]) {
+//          nums[++j] = cur
+//       }
+//    }
+//    return ++j;
+// }
+
+var removeDuplicates = function (nums) {
+    // 有序考虑用指针，这里用快慢指针
+    let n = nums.length, s = 0, f = 0;;
+    if (n === 0) return 0;
+
+    while (f < n) {
+        if (nums[f] !== nums[s]) {
+            s += 1;
+            nums[s] = nums[f]
+        }
+        f += 1
+    }
+    // 索引加一
+    return s + 1;
+};
 // @lc code=end
 

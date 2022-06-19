@@ -23,22 +23,44 @@
 输出：[2,3]
 (64 ms)
  */
-var deleteDuplicates = function(head) {
- if(head === null || head.next === null) {
-  return head
- }
- if(head.val !== head.next.val) {
-  head.next = deleteDuplicates(head.next);
- } else {
-  // 如果2个节点相同，就先把相同的节点全部移除
-  let temp = head.next;
-  while(temp !== null && head.val === temp.val) {
-   temp = temp.next
-  }
-  // 找到不重复的为止
-  return deleteDuplicates(temp)
- }
- return head
+// var deleteDuplicates = function(head) {
+//  if(head === null || head.next === null) {
+//   return head
+//  }
+//  if(head.val !== head.next.val) {
+//   head.next = deleteDuplicates(head.next);
+//  } else {
+//   // 如果2个节点相同，就先把相同的节点全部移除
+//   let temp = head.next;
+//   while(temp !== null && head.val === temp.val) {
+//    temp = temp.next
+//   }
+//   // 找到不重复的为止
+//   return deleteDuplicates(temp)
+//  }
+//  return head
+// };
+
+var deleteDuplicates = function (head) {
+    // 下一个和下一个的下一个比, 如果相同, 记录该值
+    // 只要下一个值和这值一样就把当前的下一个指针
+    let node = new ListNode(-1)
+    node.next = head
+    let p = node;
+
+    while (p.next && p.next.next) {
+        if (p.next.val === p.next.next.val) {
+            let val = p.next.val;
+            while (p.next && p.next.val === val) {
+                p.next = p.next.next
+            }
+        } else {
+            // 不重复,跳过
+            p = p.next
+        }
+    }
+
+    return node.next
 };
 // @lc code=end
 

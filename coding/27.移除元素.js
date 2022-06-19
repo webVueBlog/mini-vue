@@ -45,14 +45,29 @@
 
  */
 // (56 ms) 返回移除后数组的新长度。
-var removeElement = function(nums, val) {
- let k = 0
- for(let i = 0; i < nums.length; i++) {
-  // 遍历数组
-  if(nums[i] !== val)
-  nums[k++] = nums[i]
- }
- return k
+// var removeElement = function(nums, val) {
+//  let k = 0
+//  for(let i = 0; i < nums.length; i++) {
+//   // 遍历数组
+//   if(nums[i] !== val)
+//   nums[k++] = nums[i]
+//  }
+//  return k
+// };
+
+
+var removeElement = function (nums, val) {
+    let l = 0, r = nums.length;
+    while (l < r) {
+        if (nums[l] === val) {
+            nums[l] = nums[r - 1];
+            r--;
+        } else {
+            l++;
+        }
+    }
+    return l;
+
 };
 // @lc code=end
 

@@ -98,4 +98,51 @@ var threeSum = function(nums) {
     return ans;
 }
 
+
+
+
+
+// var threeSum = function (nums) {
+//     const res = [];
+//     nums.sort((a, b) => a - b)
+//     for (let i = 0; i < nums.length - 2; i += 1) {
+//         let l = i + 1, r = nums.length - 1;
+//         // 如果遇到重复的数字，则跳过
+//         if (i > 0 && nums[i] === nums[i - 1]) {
+//             continue
+//         }
+//         while (l < r) {
+//             if (nums[i] + nums[l] + nums[r] > 0) {
+//                 r--;
+//                 // 处理右指针元素重复的情况
+//                 while (l < r && nums[r] === nums[r + 1]) {
+//                     r--;
+//                 }
+//             } else if (
+//                 nums[i] + nums[l] + nums[r] < 0
+//             ) {
+//                 l++;
+//                 // 处理左指针元素重复的情况
+//                 while (l < r && nums[l] === nums[l - 1]) {
+//                     l++;
+//                 }
+//             } else {
+//                 // 得到目标数字组合，推入结果数组
+//                 res.push([nums[i], nums[l], nums[r]])
+//                 // 左右指针一起前进
+//                 l++;
+//                 r--;
+//                 // 若左指针元素重复，跳过
+//                 while (l < r && nums[l] === nums[l - 1]) {
+//                     l++;
+//                 }
+//                 // 若右指针元素重复，跳过
+//                 while (l < r && nums[r] === nums[r + 1]) {
+//                     r--;
+//                 }
+//             }
+//         }
+//     }
+//     return res
+// };
 // @lc code=end

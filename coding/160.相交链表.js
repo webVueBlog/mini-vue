@@ -60,16 +60,31 @@ listB 中节点数目为 n
 
 (76 ms)
  */
-var getIntersectionNode = function(headA, headB) {
-    // 临时链表 a 临时链表 b
-    let a = headA, b = headB
-    while(a !==b ) {
-        // 当 a b 不相等进入循环
-        // a存在，走一步
-        a = !a ? headB : a.next
-        b = !b ? headA : b.next
+// var getIntersectionNode = function(headA, headB) {
+//     // 临时链表 a 临时链表 b
+//     let a = headA, b = headB
+//     while(a !==b ) {
+//         // 当 a b 不相等进入循环
+//         // a存在，走一步
+//         a = !a ? headB : a.next
+//         b = !b ? headA : b.next
+//     }
+//     // 返回相交的链表
+//     return a
+// };
+
+var getIntersectionNode = function (headA, headB) {
+    // p1 指向 A 链表头结点，p2 指向 B 链表头结点
+     p1 = headA, p2 = headB;
+    while (p1 !== p2) {
+        // p1 走一步，如果走到 A 链表末尾，转到 B 链表
+        if (p1 === null) p1 = headB;
+        else p1 = p1.next;
+        // p2 走一步，如果走到 B 链表末尾，转到 A 链表
+        if (p2 === null) p2 = headA;
+        else p2 = p2.next;
     }
-    // 返回相交的链表
-    return a
+    return p1;
 };
+
 // @lc code=end
