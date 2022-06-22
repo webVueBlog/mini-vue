@@ -105,6 +105,9 @@
 - [promise串行写法](./JavaScript/promise串行写法.md)
 - [借鉴Promise原理实现题目](./JavaScript/借鉴Promise原理实现题目.md)
 - [Promise实现一个红绿灯](./JavaScript/Promise实现一个红绿灯.md)
+- [微任务宏任务执行顺序题](./JavaScript/微任务宏任务执行顺序题.md)
+- [实现一个reduce](./JavaScript/实现一个reduce.md)
+- [类数组转化为数组的4种方式](./JavaScript/类数组转化为数组的4种方式.md)
 - [蚂蚁金服异步串行面试题-借鉴Promise原理实现](./JavaScript/蚂蚁金服异步串行面试题-借鉴Promise原理实现.md)
 
 
