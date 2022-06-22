@@ -108,6 +108,13 @@
 - [微任务宏任务执行顺序题](./JavaScript/微任务宏任务执行顺序题.md)
 - [实现一个reduce](./JavaScript/实现一个reduce.md)
 - [类数组转化为数组的4种方式](./JavaScript/类数组转化为数组的4种方式.md)
+- [实现一个calculate](./JavaScript/实现一个calculate.md)
+- [Json最大深度](./JavaScript/Json最大深度.md)
+- [数组扁平化](./JavaScript/数组扁平化.md)
+- [实现发布订阅EventEmitter](./JavaScript/实现发布订阅EventEmitter.md)
+- [使用proxy实现观察者模式](./JavaScript/使用proxy实现观察者模式.md)
+- [实现一个单例模式](./JavaScript/实现一个单例模式.md)
+- [实现一个防抖节流](./JavaScript/实现一个防抖节流.md)
 - [蚂蚁金服异步串行面试题-借鉴Promise原理实现](./JavaScript/蚂蚁金服异步串行面试题-借鉴Promise原理实现.md)
 
 
