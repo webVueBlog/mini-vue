@@ -11,26 +11,30 @@
  * @return {number}
  */
  var smallestDistancePair = function(nums, k) {
-  nums.sort((a, b) => a - b);
-  let n = nums.length, left = 0, right = nums[n - 1] - nums[0];
-  while (left <= right) {
-      const mid = Math.floor((left + right) / 2);
-      let cnt = 0;
-      for (let i = 0, j = 0; j < n; j++) {
-          while (nums[j] - nums[i] > mid) {
-              i++;
-          }
-          cnt += j - i;
-      }
-      if (cnt >= k) {
-          right = mid - 1;
-      } else {
-          left = mid + 1;
-      }
-  }
-  return left;
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    let left = 0;
+    let right = nums[n - 1] - nums[0];
+    
+    while (left < right) {
+        const mid = (left + right) >>> 1;
+        if (check(mid, k, nums)) left = mid + 1;
+        else right = mid;
+    }
+    
+    return left;
+};
+
+const check = (mid, k, nums) => {
+    let [count, start] = [0, 0];
+    
+    for (let i = 1; i < nums.length; i++) {
+        while (nums[i] - nums[start] > mid) start++;
+        
+        count += i - start;
+    }
+    
+    return count < k;
 }
-
-
 // @lc code=end
 

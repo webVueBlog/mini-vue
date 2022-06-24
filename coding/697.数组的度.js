@@ -8,29 +8,24 @@
 /**
  * @param {number[]} nums
  * @return {number}
-(88 ms)
  */
-var findShortestSubArray = function(nums) {
-    const counts = {}
-    const firstIndexes = {}
-    const lastIndexes = {}
-    let max = 0
-    for (let i = 0; i < nums.length; i++) {
-        const k = nums[i]
-        counts[k] = (counts[k] || 0) + 1
-        max = Math.max(max, counts[k])
-        if (firstIndexes[k] === undefined) {
-            firstIndexes[k] = i
+ var findShortestSubArray = function(nums) {
+    const map = {};
+    let [times, minLen] = [0, 0];
+    
+    nums.forEach((num, i) => {
+        if (!(num in map)) map[num] = [1, i, i];
+        else {
+            map[num][0]++;
+            map[num][2] = i;
         }
-        lastIndexes[k] = i
-    }
-    let res = nums.length
-    for (const k in counts) {
-        if (counts[k] === max) {
-            res = Math.min(res, lastIndexes[k] - firstIndexes[k] + 1)
-        }
-    }
-    return res
+        
+        const [count, start, end] = map[num];
+        if (count > times) [times, minLen] = [count, end - start];
+        else if (count === times) minLen = Math.min(minLen, end - start);
+    })
+    
+    return minLen + 1;
 };
 // @lc code=end
 

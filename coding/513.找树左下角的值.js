@@ -17,39 +17,16 @@
  * @param {TreeNode} root
  * @return {number}
  */
-//  (68 ms)
-var findBottomLeftValue = function(root) {;
- let queue = [root] // [..., root]
- let node = root;
- while(queue.length) {
-  node = queue.pop() // 取出当前节点
-  if(node.right) {
-   queue.unshift(node.right)
+ var findBottomLeftValue = function(root) {
+  const stack = [root];
+  
+  while (stack.length) {
+      root = stack.pop();
+      if (root.right) stack.unshift(root.right);
+      if (root.left) stack.unshift(root.left);
   }
-  if(node.left) {
-   queue.unshift(node.left)
-  }
- }
- return node.val
+  
+  return root.val;
 };
-
-//  (72 ms)
-// var findBottomLeftValue = function(root) {
-//  let queue = [root];
-//  let node = root;
-//  while (queue.length){
-//      if(!queue){
-//          return;
-//      }
-//      node = queue.pop();
-//      if(node.right){
-//          queue.unshift(node.right);
-//      }
-//      if(node.left){
-//          queue.unshift(node.left);
-//      }
-//  }
-//  return node.val;
-// };
 // @lc code=end
 
