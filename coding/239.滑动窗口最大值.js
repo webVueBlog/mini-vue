@@ -52,23 +52,18 @@ var maxSlidingWindow = function(nums, k) {
 }
 
 // var maxSlidingWindow = function(nums, k) {
-//  const q = [];  // 存 *indices*
-//  const res = [];
-//  for (let i = 0; i < nums.length; i++) {
-//      while (q && nums[q[q.length - 1]] <= nums[i]) {
-//          q.pop();
-//      }
-//      q.push(i);
-//      //删除窗口外的第一个元素
-//      if (q[0] === i - k) {
-//          q.shift();
-//      }
-//      //如果窗口有k个元素添加到结果中(第k-1个窗口有< k个元素，因为我们从空窗口开始，每次迭代添加1个元素)
-//      if (i >= k - 1) {
-//          res.push(nums[q[0]]);
-//      }
-//  }
-//  return res;    
+//     const dq = [];
+//     const output = [];
+    
+//     for (let i = 0; i < nums.length; i++) {
+//         while (dq.length && nums[dq.at(-1)] <= nums[i]) dq.pop();
+        
+//         dq.push(i);
+//         if (dq[0] === i - k) dq.shift();
+//         if (i + 1 >= k) output.push(nums[dq[0]]);
+//     }
+    
+//     return output;
 // };
 // @lc code=end
 

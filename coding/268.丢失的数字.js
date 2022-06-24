@@ -8,16 +8,11 @@
 /**
  * @param {number[]} nums
  * @return {number}
-(64 ms)
  */
-var missingNumber = function(nums) {
- const res = new Array(nums.length+1).fill(-1);
-
- for(const num of nums) {
-  res[num] = num;
- }
-
- return res.indexOf(-1);
+ var missingNumber = function(nums) {
+  const n = nums.length;
+  
+  return n * (n + 1) / 2 - nums.reduce((a, b) => a + b);
 };
 // @lc code=end
 

@@ -8,43 +8,17 @@
 /**
  * @param {number} n
  * @return {boolean}
-
-(68 ms)
  */
-// var isHappy = function(n) {
-//     var seen = {};
-//     while (n !== 1 && !seen[n]) {
-//         seen[n] = true;
-//         n = sumOfSquares(n);
-//     }
-//     return n === 1 ? true : false;
-// };
-
-// function sumOfSquares(numString) {
-//     return numString.toString().split('').reduce(function(sum, num) {
-//         return sum + Math.pow(num, 2);
-//     }, 0);
-// }
-
-var isHappy = function(n) {
-    if (n === 1) return true
-    let p = getNext(n)
-    let q = getNext(getNext(n))
-    while (p !== q && q !== 1) {
-        p = getNext(p)
-        q = getNext(getNext(q))
+ var isHappy = function(n) {
+    const set = new Set();
+    
+    while (n > 1 && !set.has(n)) {
+        set.add(n)
+        n = sumOfSqure(n);
     }
-    return q === 1
+    
+    return n === 1;
 };
 
-// 获取下一个节点
-var getNext = function(n) {
-    let sum = 0;
-    while (n) {
-        sum += (n % 10) ** 2
-        n = Math.floor(n / 10)
-    }
-    return sum
-}
-
+const sumOfSqure = n => [...`${n}`].reduce((sum, num) => sum += (+num) ** 2, 0);
 // @lc code=end

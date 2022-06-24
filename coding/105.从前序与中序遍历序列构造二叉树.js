@@ -17,31 +17,27 @@
  * @param {number[]} preorder
  * @param {number[]} inorder
  * @return {TreeNode}
-难度：Middle
-
-相关话题：`树`、`深度优先搜索`、`数组`
-
-根据一棵树的前序遍历与中序遍历构造二叉树。
-
-**注意:** 
-你可以假设树中没有重复的元素。
-
-
-
  */
-var buildTree = function(preorder, inorder) {
-  let preIdx=0
-  return createTree(0,inorder.length-1)
+ var buildTree = function(preorder, inorder) {
+  let [root, top, pop, i] = [null, null, null, 0];
   
-  function createTree(lo,hi){
-    if(lo>hi)return null
-    let val=preorder[preIdx++]
-    let idx=inorder.indexOf(val)
-    let node=new TreeNode(val)
-    node.left=createTree(lo,idx-1)
-    node.right=createTree(idx+1,hi)
-    return node
+  for (const val of preorder) {
+      const node = new TreeNode(val);
+      if (pop) [pop.right, pop] = [node, null];
+      else if (top) top.left = node;
+      else root = node;
+      
+      [node.right, top] = [top, node];
+      
+      while (top && top.val === inorder[i]) {
+          pop = top;
+          top = pop.right;
+          pop.right = null;
+          ++i
+      }
   }
+  
+  return root;
 };
 // @lc code=end
 

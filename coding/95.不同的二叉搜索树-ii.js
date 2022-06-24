@@ -17,41 +17,27 @@
  * @param {number} n
  * @return {TreeNode[]}
  */
-var generateTrees = function(n) {
-    if (n == 0) return [];
-    
-    return findAllUniqueTrees(1, n);
+ var generateTrees = function(n) {
+    return !n ? [] : helper(1, n);
+};
 
-    function findAllUniqueTrees(start, end) {
-        const ans = [];
+const helper = (start, end) => {
+    if (start > end) return [null];
+    
+    const ans = [];
+    for (let i = start; i <= end; i++) {
+        const left = helper(start, i - 1);
+        const right = helper(i + 1, end);
         
-        // base case
-        if (start > end) {
-            ans.push(null);
-            return ans;
-        };
-        
-        if (start == end) {
-            ans.push(new TreeNode(start));
-            return ans;
-        }
-        
-        for (let i = start; i <= end; i++) {
-            const leftSubTrees = findAllUniqueTrees(start, i - 1);
-            const rightSubTrees = findAllUniqueTrees(i + 1, end);
-            
-            for (const leftSubTree of leftSubTrees) {
-                for (const rightSubTree of rightSubTrees) {
-                    const root = new TreeNode(i);
-                    root.left = leftSubTree;
-                    root.right = rightSubTree;
-                    ans.push(root);
-                }
+        for (let l of left) {
+            for (let r of right) {
+                const node = new TreeNode(i, l, r);
+                ans.push(node);
             }
         }
-        
-        return ans;
     }
-};
+    
+    return ans;
+}
 // @lc code=end
 

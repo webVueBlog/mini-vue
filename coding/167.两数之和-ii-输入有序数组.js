@@ -10,20 +10,17 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function (numbers, target) {
-    let l = 0, r = numbers.length - 1;
-
-    while (l < r) {
-        if (numbers[l] + numbers[r] > target) {
-            r--
-        } else if (
-            numbers[l] + numbers[r] < target
-        ) {
-            l++
-        } else {
-            return [l + 1, r + 1]
-        }
+ var twoSum = function(numbers, target) {
+    let [left, right] = [0, numbers.length - 1];
+    
+    while (left < right) {
+        const sum = numbers[left] + numbers[right];
+        if (sum === target) return [left + 1, right + 1];
+        
+        sum > target ? right-- : left++;
     }
+    
+    return [];
 };
 // @lc code=end
 
