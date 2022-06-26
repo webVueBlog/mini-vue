@@ -1,5 +1,7 @@
 ## 方法一: indexOf()
 
+```js
+
 var str = '123';
 console.lot(str.indexOf('3') != -1); // true
 
@@ -10,9 +12,12 @@ Array.prototype.indexOf()
 String.prototype.indexOf()
 
 indexOf() 方法返回调用它的 String 对象中第一次出现的指定值的索引，从 fromIndex 处进行搜索。如果未找到该值，则返回 -1。
+```
+
 
 ## 方法二: search()
 
+```js
 String.prototype.search()
 
 search() 方法执行正则表达式和 String 对象之间的一个搜索匹配。
@@ -22,9 +27,12 @@ var re = /[A-Z]/g;
 var re2 = /[.]/g;
 console.log(str.search(re)); // returns 4, which is the index of the first capital letter "J"
 console.log(str.search(re2)); // returns -1 cannot find '.' dot punctuation
+```
+
 
 ## 方法三:match()
 
+```js
 String.prototype.match()
 
 match() 方法检索返回一个字符串匹配正则表达式的结果。
@@ -41,9 +49,12 @@ console.log(found);
 var str = '123';
 var reg = RegExp(/3/);
 if(str.match(reg)) {}
+```
+
 
 ## 方法四:test()
 
+```js
 RegExp.prototype.test()
 
 test() 方法用于检索字符串中指定的值。返回 true 或 false。
@@ -69,12 +80,17 @@ console.log(globalRegex.lastIndex);
 
 console.log(globalRegex.test(str));
 // expected output: false
+```
+
 
 ## 方法五:exec()
 
+```js
 RegExp.prototype.exec()
 
 exec() 方法在一个指定字符串中执行一个搜索匹配。返回一个结果数组或 null。
+```
+
 
 
 

@@ -8,28 +8,21 @@
 
 标签：
 
-- B端科普
-- AC
-- Axios目录下源码分析
-- coding目录下AC题解
-- handwriting 各式js常用api
-- JavaScript - 该目录下
-- js-leetcode目录下 ✔
-- md
+- `B`端科普
+- `AC`目录 - 算法笔记
+- `Axios`目录下源码分析
+- `coding`目录下`AC`题解
+- `handwriting` 各式`js`常用`api`
+- `JavaScript` - 该目录下 - 笔记
+- `js-leetcode` 目录下 ✔
 - 项目总结
-- promise目录
-- react核心 目录
-- vue 目录 分析源码系列
-- vue-dev源码注解
-- 深入浅出Vue系列
+- `promise` 目录
+- `reac` t核心 目录
+- `vue` 目录 分析源码系列 - `mini-vue` 手写源码解析
+- `vue-dev` 源码注解 - `vue2` 源码解析-2.6.
+- 深入浅出 `Vue` 系列
 - 手写源码系列
 
-目录：
-
-- mini-vue手写源码解析
-- vue2源码解析-2.6.
-- AC目录 - 算法笔记
-- JavaScript - 笔记
 
 ## B端科普
 
@@ -74,6 +67,10 @@
 - [9.实现 object.assign](https://github.com/webVueBlog/mini-vue/issues/13)
 - [10.实现原型链继承、借用构造函数继承、组合继承](https://github.com/webVueBlog/mini-vue/issues/14)
 - [11.手写原型式继承、寄生式继承、寄生组合式继承](https://github.com/webVueBlog/mini-vue/issues/15)
+
+### Javascript-Array
+
+### Javascript-继承
 
 ## JavaScript - 该目录下
 
@@ -125,6 +122,7 @@
 ## md
 
 - [页面渲染流程分析](./md/页面渲染流程分析.md)
+- [JavaScript基础知识点](./md/JavaScript基础知识点.md)
 
 ## 项目总结
 
@@ -164,15 +162,15 @@
 
 ## 🐤 交流讨论 && 如何学习 && 转载声明 && 帮忙修正
 
-(如果觉得不错，请各位同学们麻烦点个Star，👍 ） （可以转载里面的所有知识点用到任何地方，但请添加仓库的地址）有问题欢迎提交[issues](https://github.com/webVueBlog/mini-vue/issues)
+(如果觉得不错，请各位同学们麻烦点个 `Star`，👍 ） （可以转载里面的所有知识点用到任何地方，但请添加仓库的地址）有问题欢迎提交[issues](https://github.com/webVueBlog/mini-vue/issues)
 
-欢迎大家前来讨论，如果觉得对你的学习有一定的帮助，欢迎点个Star （此仓库每天都会准时更新）
+欢迎大家前来讨论，如果觉得对你的学习有一定的帮助，欢迎点个 `Star` （此仓库每天都会准时更新）
 
 ## 勘误及提问
 
-如果有疑问或者发现错误，可以在相应的 issues 进行提问或勘误。
+如果有疑问或者发现错误，可以在相应的 `issues` 进行提问或勘误。
 
-如果喜欢或者有所启发，欢迎 star，对作者也是一种鼓励。
+如果喜欢或者有所启发，欢迎 `star` ，对作者也是一种鼓励。
 
 ## License
 [![MIT](http://api.haizlin.cn/api?mod=interview&ctr=issues&act=generateSVG&type=a.svg)](https://github.com/webVueBlog/interview-answe)
