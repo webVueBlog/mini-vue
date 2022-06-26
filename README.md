@@ -112,6 +112,7 @@
 - [使用proxy实现观察者模式](./JavaScript/使用proxy实现观察者模式.md)
 - [实现一个单例模式](./JavaScript/实现一个单例模式.md)
 - [实现一个防抖节流](./JavaScript/实现一个防抖节流.md)
+- [assign、六大继承、类继承、深拷贝](./JavaScript/assign-六大继承-类继承-深拷贝.md)
 - [蚂蚁金服异步串行面试题-借鉴Promise原理实现](./JavaScript/蚂蚁金服异步串行面试题-借鉴Promise原理实现.md)
 
 
