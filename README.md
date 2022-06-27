@@ -22,6 +22,7 @@
 - `vue-dev` 源码注解 - `vue2` 源码解析-2.6.
 - 深入浅出 `Vue` 系列
 - 手写源码系列
+- 复习
 
 
 ## B端科普
@@ -116,6 +117,9 @@
 - [assign、六大继承、类继承、深拷贝](./JavaScript/assign-六大继承-类继承-深拷贝.md)
 - [蚂蚁金服异步串行面试题-借鉴Promise原理实现](./JavaScript/蚂蚁金服异步串行面试题-借鉴Promise原理实现.md)
 - [树形结构转列表](./JavaScript/树形结构转列表.md)
+- [实现发布订阅](./JavaScript/实现发布订阅.md)
+- [实现一个Sleep函数](./JavaScript/实现一个Sleep函数.md)
+- [proxy](./JavaScript/proxy.md)
 
 ## js-leetcode目录下 ✔
 
@@ -161,6 +165,7 @@
 - [手写 promise 实现promiseA+规范](./promise/src/index.md) 在 promise 目录文件夹下
 - [手写vuex源码分析](./vuex/index.md) - 在 vuex 目录文件夹下
 
+## 复习(review)
 
 ## 🐤 交流讨论 && 如何学习 && 转载声明 && 帮忙修正
 
