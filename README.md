@@ -53,7 +53,31 @@
 
 ## Axios目录下源码分析
 
+- [axios](./Axios/axios.md)
+- [index](./Axios/index.md)
+
 ## coding目录下AC题解
+
+- [1.两数之和.js](./coding/1.两数之和.js)
+- [2.两数相加.js](./coding/2.两数相加.js)
+- ...
+
+## handwriting
+
+- 防抖 debounce
+- 节流 throttle
+- 深拷贝 deep-copy
+- 事件总线 event-bus
+- instanceof 运算符
+- new 运算符
+- call
+- apply
+- bind
+- Object.create
+- 继承，inherit
+- 手写 Promise
+- async await
+- 并发请求 concurrent-request
 
 ## handwriting 各式js常用api
 
@@ -68,10 +92,6 @@
 - [9.实现 object.assign](https://github.com/webVueBlog/mini-vue/issues/13)
 - [10.实现原型链继承、借用构造函数继承、组合继承](https://github.com/webVueBlog/mini-vue/issues/14)
 - [11.手写原型式继承、寄生式继承、寄生组合式继承](https://github.com/webVueBlog/mini-vue/issues/15)
-
-### Javascript-Array
-
-### Javascript-继承
 
 ## JavaScript - 该目录下
 
@@ -141,6 +161,8 @@
 
 ## react核心 目录
 
+- [react开发和初体验](./react核心/react开发和初体验.md)
+
 ## vue 目录 分析源码系列 - 在 vue 和 vue-dev(源码解析) 目录文件夹下
  
 - [vue源码分析前言](./vue/vue源码分析前言.md)
@@ -150,7 +172,17 @@
 - [vue源码全局API](./vue/vue源码全局API.md)
 - [vue源码实例方法](./vue/vue源码实例方法.md)
 
-## vue-dev源码注解
+## vue2 -手写vue
+
+- [array](./vue2/手写vue/array.ts)
+- [dep](./vue2/手写vue/dep.ts)
+- [index](./vue2/手写vue/index.ts)
+
+## vue3
+
+- [index](./vue3/index.md)
+
+## vue-dev 源码注解
 
 ## 深入浅出Vue系列 - 在 vue-doc 目录文件夹下
 
@@ -165,7 +197,25 @@
 - [手写 promise 实现promiseA+规范](./promise/src/index.md) 在 promise 目录文件夹下
 - [手写vuex源码分析](./vuex/index.md) - 在 vuex 目录文件夹下
 
-## 复习(review)
+## vuex(review)
+
+- vuex基本用法
+- install方法
+- vuex中state的实现
+- getters实现
+- actions和mutations
+- 模块的用法
+- moduleCollection实现
+- 抽离module类
+- 递归安装模块
+- vuex格式化操作
+- 增加响应式效果
+- 命名空间的计算
+- 模块的注册
+- vuex实现持久化插件
+- replaceState
+- 区分mutaion和action
+- 辅助函数的应用
 
 ## 🐤 交流讨论 && 如何学习 && 转载声明 && 帮忙修正
 
